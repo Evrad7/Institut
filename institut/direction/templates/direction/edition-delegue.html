@@ -1,0 +1,113 @@
+{% extends "direction/base.html" %}
+{% load static %}
+
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+ Choisissez le delegue de la spécialité
+ {{specialite.filiere.cycle.nom}}/{{specialite.filiere.nom}}/<span class="fw-bold violet">{{specialite.nom}} {{specialite.niveau}}</span>
+ </p>
+
+{% endblock %}
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=8 %}
+<div class="my-3 ">
+
+  <form action="{{request.path}}" method="get">
+<div class="  row " >
+  <div class="col-12 col-sm-6 position-relative ">
+      <input type="search" name="search" class="form-control" style="height:40px;" placeholder="Rechercher un etudiant">
+    <button type="submit"  class="btn btn-primary mt-3" id="search">
+      <i class="bi bi-search text-white"></i> Recherche<span class="fw-bold violet">
+    </button>
+  </div>
+  <div class="col-12 col-sm-6  mt-4 mt-sm-0 p-0 position-relative " style="">
+  <label class="label-form " for="recherche" id="label-search">Rechercher par:</label>
+    <select class="form-select" name="search-by">
+      <option value="matricule">Matricule</option>
+      <option value="noms"> Noms et/ou Prenoms</option>
+    </select>
+  </div>
+
+  <div class="mt-2">
+    <h5>Delegue actuel:</h5>
+    <ul>
+      <li>Matricule: <span class="fw-bold violet"> {{specialite.delegue.matricule}} </span></li>
+      <li>Photo: <span class="fw-bold violet"> {{specialite.delegue.photo}} </span></li>
+      <li>Noms:<span class="fw-bold violet"> {{specialite.delegue.noms}} </span></li>
+      <li>Prenoms: <span class="fw-bold violet"> {{specialite.delegue.prenoms}} </span></li>
+    </ul>
+
+  </div>
+
+
+</div>
+
+</form>
+</div>
+<div class="">
+ <div class=" overflow-auto">
+
+  <table class="  table  table-light table-borderless table-hover table-bordered my-4 " id="table-list">
+   <tr>
+     <th class="text-uppercase violet fw-bold"> Photo</th>
+     <th class="text-uppercase violet fw-bold"> Matricule</th>
+     <th class="text-uppercase violet fw-bold"> Noms</th>
+     <th class="text-uppercase violet fw-bold"> Prenoms</th>
+     <th class="text-uppercase violet fw-bold"> Sexe</th>
+     <th class="text-uppercase violet fw-bold px-2"> Date de naissance </th>
+     <th class="text-uppercase violet fw-bold px-5"> Filière</th>
+     <th class="text-uppercase violet fw-bold"> Cantine</th>
+     <th class="text-uppercase violet fw-bold"> Transport</th>
+   </tr>
+
+    {% for etudiant in etudiants %}
+      <tr url="{% url 'direction:set_delegue' pk_etudiant=etudiant.pk %}" class="
+      item {% if etudiant.specialite.delegue.pk is etudiant.pk %}
+           text-success
+           {% endif %}">
+
+        <td>{{etudiant.photo}}</td>
+        <td>{{etudiant.matricule}}</td>
+        <td>{{etudiant.noms}}</td>
+        <td>{{etudiant.prenoms}}</td>
+        <td>{{etudiant.sexe}}</td>
+        <td>{{etudiant.date_de_naissance}}</td>
+        <td>{{etudiant.specialite.nom}}</td>
+        <td>{% if etudiant.cantine %} OUI {% else %} NON {% endif %}</td>
+        <td>{% if etudiant.transport %} OUI {% else %} NON {% endif %}</td>
+
+      </tr>
+    {% empty %}
+      <h3 class="text-center"> Aucun étudiant trouvé</h3>
+    {% endfor %}
+
+ </table>
+
+ <div class="text-end row">
+    <div class="col-6">
+     <p></p>
+    </div>
+    <div class="col-6">
+       <p class="fw-bold violet" fs-2>{{etudiants.count}} étudiant{{etudiants.count|pluralize}}</p>
+    </div>
+
+
+
+ </div>
+</div>
+
+<div class="my-4">
+  {% include 'direction/button-retour.html'%}
+
+</div>
+
+</div>
+
+
+
+
+<script type="text/javascript" src="{% static 'vitrine/node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}">
+    </script>
+{% endblock %}

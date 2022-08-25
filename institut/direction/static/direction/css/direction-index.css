@@ -1,0 +1,208 @@
+:root{
+  --violet-gradient:linear-gradient(rgba(56, 19, 155), rgba(3, 3, 113));
+  --violet:rgba(56, 19, 155);
+  --white:#f8f9fa;
+
+}
+
+.violet{
+  color:var(--violet);
+}
+.form-direction p{
+  display: flex;
+  margin-top: 30px;
+}
+
+
+@media all and (max-width: 576px){
+  .form-direction p{
+    display: block;
+  }
+}
+
+.form-direction p label{
+  width: 150px;
+  margin-right: 10px;
+  font-weight: bold;
+
+}
+.form-direction p input[type="text"], .form-direction p input[type="file"],
+.form-direction p input[type="date"], .form-direction p input[type=""]{
+  height: 40px;
+}
+.bg-violet{
+  background-image: var(--violet-gradient);
+  background-color: var(--violet);
+}
+
+.error ul{
+  list-style: none;
+}
+
+
+.vertical-bar{
+  position:absolute;
+  background-color: var(--violet);
+  background-image: var(--violet-gradient);
+  top:0;
+  left:20px;
+  min-height:100vh;
+  width:80px;
+  overflow:hidden;
+  transition: .5s;
+
+}
+.vertical-bar.active{
+  width:300px;
+  left:0px;
+}
+.vertical-bar .menu-2{
+  position: absolute;
+  top:0;
+  right:25%;
+}
+
+.vertical-bar ul li a{
+  white-space: nowrap;
+}
+.vertical-bar ul{
+  list-style: none;
+
+}
+.vertical-bar ul li {
+  position:relative;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.vertical-bar ul li:nth-child(1){
+  width:80px;
+  pointer-events: none;
+}
+
+
+
+.vertical-bar ul li:hover:before, .vertical-bar ul li.active:before{
+  position:absolute;
+  content: "";
+  top:-40px;
+  right: 0;
+  width:40px;
+  height: 40px;
+  background:transparent;
+  border-radius: 50%;
+  box-shadow: 20px 16px 0px  var(--white);
+
+
+
+}
+.vertical-bar ul li:hover:after, .vertical-bar ul li.active:after{
+  position:absolute;
+  content: "";
+  bottom:-40px;
+  right: 0;
+  width:40px;
+  height: 40px;
+  background:transparent;
+  border-radius: 50%;
+  box-shadow: 20px -16px 0px  var(--white);
+}
+
+.vertical-bar ul li:hover, .vertical-bar ul li.active {
+  background-color:var(--white);
+}
+.vertical-bar ul li:hover a, .vertical-bar ul li.active a{
+  color:var(--violet);
+
+}
+
+.main{
+
+
+  padding-left:130px;
+  width:100%;
+  transition: .5s;
+  min-height: 100vh;
+
+
+}
+.main .top{
+  color:var(--violet);
+}
+
+.main.active{
+padding-left: 350px;
+}
+.card-title, .card i{
+  color:  var(--violet);
+
+}
+.card:hover .card-title, .card:hover  i, .card:hover .card-text {
+  color: var(--white);
+}
+.card{
+  min-height: 100%;
+  transition: .5s;
+}
+.card:hover{
+  transform:scale(1.05);
+  background: var(--violet);
+  background-image: var(--violet-gradient);
+}
+.main .container button{
+  background: var(--violet);
+  background-image: var(--violet-gradient);
+  color:var(--white);
+}
+.menu-2{
+  display: none;
+}
+
+@media all and (max-width:775px) {
+  .vertical-bar{
+  transform: translateX(-150px);
+  z-index: 99;
+  }
+  .main.active, .main{
+    padding-left: 0px;
+  }
+  .vertical-bar.active{
+    transform: translateX(0px);
+    z-index: 99;
+     min-height: 100%;
+  }
+  .menu-2{
+    display: inline;
+  }
+}
+
+.accordion-item .accordion-collapse ul li.active a{
+ color:white;
+
+
+}
+.accordion-item .accordion-collapse ul li.active{
+  background-image:var(--violet-gradient);
+ background-color: var(--violet);
+}
+
+
+.accordion-item .accordion-collapse ul li a{
+  color:var(--violet);
+
+}
+
+table tr th, table tr td{
+font-size: .85rem;
+}
+
+#search{
+ margin-top:0;
+ white-space: nowrap;
+}
+#label-search{
+  position:absolute;
+  top:-20px;
+}
+div.menu-professeurs.desable{
+  display:none;
+}

@@ -1,0 +1,30 @@
+{% extends "direction/base.html" %}
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+    Suprimer l'étudiant {{etudiant.prenom}}
+ </p>
+
+{% endblock %}
+  
+  
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=2 %}
+<div class="container  mt-4 ">
+    <h2> Voulez vous vraiment supprimer l'étudiant <span class="fw-bold violet">{{etudiant.noms}}  {{etudiant.prenoms}} </span> ??</h2>
+    <form method="post" action="{{request.path}}">
+    {% csrf_token %}
+      <div class="mt-4">
+        <a href="{{etudiant.get_absolute_url}}" class="btn btn-secondary mr-3" >NON</a>
+        <input type="submit" name="" value="OUI" class="btn btn-primary">
+    
+    </div>
+    </form>
+   
+  </div>
+
+
+
+
+
+{% endblock %}

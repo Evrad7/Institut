@@ -1,0 +1,85 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta  name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <title>Connexion</title>
+     <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/css_personalise.css' %}">
+  </head>
+
+  <body style="background-color:rgba(250, 250, 250);">
+    <div class="container" >
+       <div class="header-contacter bg-dark">
+         <div class="pt-5">
+           <div class="text-danger text-uppercase display-6 fw-bold ">
+             <p class="text-center">ECOLE TML</p>
+           </div>
+
+
+         </div>
+         <div class="text-center mt-5">
+           <div class="btn btn-warning rounded-0  text-light  text-uppercase fs-4 " >
+            ...
+           </div>
+         </div>
+         <h2 class="display-4 text-uppercase fw-bold text-center text-light">  <span class="text-warning">Connecter</span>
+            vous ici et maintenant </h2>
+
+       </div>
+
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="container mx-5  mr-3">
+
+        {% include "vitrine/menu.html" with page=1 %}
+        <div class="d-flex justify-content-center align-items-center hidden-tml" style="min-height:300px; ">
+          <div class="border border-danger" style="width:400px;" >
+
+
+            <form class="bg-dark py-1" action="{% url 'authentification:login' %}" method="post">
+              <p class="text-white">{{next}}</p>
+              {% csrf_token %}
+              <div class=" my-5 mx-3  form-tml ">
+                <input type="text" name={{form.username.html_name}} maxlength="150" required value=""
+                placeholder="pseudonyme" class="rounded-0 w-100 bg-light" id="{{forms.username.id_for_label}}">
+                <label for="{{forms.id_for_label}}" class="">pseudonyme</label>
+              </div>
+              <div class="my-5 mx-3 form-tml">
+                <input type="password" name="{{form.password.html_name}}" autocomplete="current-password" required value=""
+                 class=" rounded-0 w-100 bg-light"
+                id="{{forms.password.id_for_label}}" placeholder="mot de passe">
+                <label for="email" class="">Mot de passe</label>
+              </div>
+              {% if form.errors %}
+               <div class="text-center text-danger ">
+                 <p> La correspondance pseudonyme-mot de passe est invalide</p>
+               </div>
+              {% endif %}
+              <div class="text-center mb-2">
+                <input type="submit" name="" value="connecter" class=" btn btn-danger text-white rounded-0 fw-bold" id="send">
+              </div>
+            </form>
+
+
+          </div>
+        </div>
+
+
+
+          {% include "vitrine/footer.html" %}
+
+          </div>
+
+          </div>
+
+  </div>
+
+
+          <script type="text/javascript" src="{% static 'vitrine/js/intersection-observer.js' %}">
+
+          </script>
+
+  </body>
+</html>

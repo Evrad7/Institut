@@ -1,0 +1,206 @@
+{% extends "direction/base.html"  %}
+{% load static %}
+
+
+{% block message %}
+<link rel="stylesheet" type="text/css" href="{% static 'direction/css/emploi-de-temps.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/owl.theme.default.css' %}">
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+  Bonjour <span class="fw-bold">{{user.username}}</span>. Cette section est reservée  à la confection des emploi de temps des étudiants et par la même occasion à l'emploi de temps des professeurs.
+  </p>
+
+
+{% endblock %}
+
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=5 %}
+<div class="mt-2 mb-4 fw-bold">
+  <p class="fs-4 text-dark"> Editez l'emploi de temps de la specialite <span class="fw-bold violet">{{specialite.nom}}  </span> niveau <span class="fw-bold violet">{{specialite.niveau}} </span> de la filiere <span class="fw-bold violet">{{specialite.filiere.nom}}  </span> du cycle <span class="fw-bold violet">{{specialite.filiere.cycle.nom}} </span></p>
+</div>
+
+<div class="my-3">
+<div class="">
+  <h2 class="fw-bold">Matières</h2>
+  <div class="owl-carousel   my-3 p-1 owl-theme" >
+    {% for matiere in matieres %}
+    <div draggable="true"  class="{{matiere.pk}}-{{matiere.professeur.pk}} position-relative  item border border-primary ps-1  pe-3  rounded-3 mx-1" style="min-height:75px;"
+     matiere="{{matiere.pk}}-{{matiere.professeur.pk}}"  id="">
+     <div class="" id="{{matiere.pk}}-{{matiere.professeur.pk}}">
+       <i class="bi bi-three-dots-vertical"></i>
+       <div class=" bg-light menu-matiere border border-dark rounded d-none  ">
+        <ul style="list-style-type:none" >
+          <li><a href="" class="text-decoration-none link-dark " matiere="{{matiere.pk}}" professeur="{{matiere.professeur.pk}}">modifier professeur</a></li>
+          <li><a href="" class="text-decoration-none link-dark " matiere="{{matiere.pk}}" professeur="{{matiere.professeur.pk}}">détails de matiere</a></li>
+
+        </ul>
+       </div>
+     </div>
+      <p>
+        <span class="fw-bold">{{matiere.nom}}</span><br>
+        Credit:{{matiere.credit}} <br>
+        Prof: <span class="professeur">{{matiere.professeur.noms}},
+           {{matiere.professeur.prenoms}}</span>
+      </p>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+<div><p class="status">emploi de temps</p>
+ <p class="display-4">{% for e in form.errors.values %}
+                            {{e}}
+                      {% endfor %}
+                      </p></div>
+  <div class=" position-relative">
+  <div class="row position-relative">
+  <div class=" col overflow-auto">
+    <table class="table table-light table-bordered table-striped" >
+      <tr>
+        <th class="text-uppercase violet fw-bold" style="width:10px">Periode</th>
+        <th class="text-uppercase violet fw-bold" style="width:10px">Heures</th>
+        <th class="text-uppercase violet fw-bold">Lundi</th>
+        <th class="text-uppercase violet fw-bold">Mardi</th>
+        <th class="text-uppercase violet fw-bold">Mercredi</th>
+        <th class="text-uppercase violet fw-bold">Jeudi</th>
+        <th class="text-uppercase violet fw-bold">Vendredi</th>
+        <th class="text-uppercase violet fw-bold">Samedi</th>
+      </tr>
+
+      {% for periode in tableau_emploi_de_temps %}
+      <tr >
+        <td class="">{{periode.periode}}</td>
+        <td class="">{{periode.heure}}</td>
+        <td class="case 1{{periode.periode}} p-1" matiere="{{periode.jour_1}}" id="1{{periode.periode}}"></td>
+        <td class="case 2{{periode.periode}} p-1" matiere="{{periode.jour_2}}" id="2{{periode.periode}}"></td>
+        <td class="case 3{{periode.periode}} p-1" matiere="{{periode.jour_3}}" id="3{{periode.periode}}"></td>
+        <td class="case 4{{periode.periode}} p-1" matiere="{{periode.jour_4}}" id="4{{periode.periode}}"></td>
+        <td class="case 5{{periode.periode}} p-1" matiere="{{periode.jour_5}}" id="5{{periode.periode}}"></td>
+        <td class="case 6{{periode.periode}} p-1" matiere="{{periode.jour_6}}" id="6{{periode.periode}}"></td>
+
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div class="col-12 col-md-3 postition-relative menu-professeurs d-none">
+    <h2>Professeurs</h2>
+    <div class="row">
+        <div class="row mb-3">
+          <div class="col-12 mt-2">
+            <div class="position-relative p-0">
+              <label for="id_search"style="white-space:nowrap">Recherche par nom</label>
+              <input type="search" name="" value="tout"  class="form-control" id="search-nom-professeur">
+              <button type="submit" name="button" class="btn btn-primary" id="search-matiere">
+              <i class="bi bi-search text-white" ></i></button>
+            </div>
+          </div>
+          <div class="">
+            <h4>Domaine: <span class="domaine">Tout</span></h4>
+          </div>
+
+          <div class="matiere">
+            <p>Matiere: <span ></span></p>
+          </div>
+
+        </div>
+      <div class="professeurs">
+        {% for professeur in professeurs %}
+        <div>
+          <p  pk-professeur="{{professeur.pk}}" > <span class=" fw-bold" style="cursor:pointer">{{professeur.noms}}  {{professeur.prenoms}} </span>:{% for domaine in professeur.domaine.all %}
+             {{domaine.nom}}, {% endfor %} <a href=# pk-professeur="{{professeur.pk}}" class="link-primary">détails</a></p>
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+    <div class=" border  border-dark rounded-circle p-2" id="chevron-right">
+      <i class="bi bi-chevron-double-right text-light fs-3"></i>
+    </div>
+
+
+  </div>
+  <div class=" col-1 " id="chevron-left">
+    <div class="border  border-dark rounded-circle p-2">
+      <i class="bi bi-chevron-double-left text-light fs-3"></i>
+    </div>
+  </div>
+  </div>
+
+  <div>
+  <form action="{{request.path}}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+  </form>
+
+  </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalDetailsProfesseur" data-bs-backdrop="true" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="">Détails du professeur</h5>
+        <button type="button" class=""  data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+      </div>
+      <div class="modal-body ">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalDetailsMatiere" data-bs-backdrop="true" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="">Détails de la matiere</h5>
+        <button type="button" class=""  data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalSelectionProfesseur" data-bs-backdrop="true" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger" id="">Impossible d'attribuer le professeur</h5>
+        <button type="button" class=""  data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript" src="{% static 'vitrine/js/jquery-3.6.0.js' %}">
+ </script>
+ <script type="text/javascript" src="{% static 'vitrine/js/owl.carousel.min.js' %}">
+ </script>
+<script type="text/javascript" src="{% static 'direction/js/emploi_de_temps.js'%}"></script>
+<script type="text/javascript" src="{% static 'vitrine/node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}">
+    </script>
+{% endblock %}

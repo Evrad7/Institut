@@ -1,0 +1,73 @@
+{% extends "direction/base.html" %}
+{% load static %}
+
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+ Gerez la présence de votre professeur
+ <span class="fw-bold violet">{{professeur.noms}}  {{professeur.prenoms}}</span>
+ </p>
+
+{% endblock %}
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=10 %}
+
+
+<div class="my-3 ">
+  <div class="statut">
+
+    {% if error is not None %}
+     {% if not error %}
+       <p class="text-success">Enregistrement réussi</p>
+     {% else %}
+       <p class="text-danger"> Enregistrement échoué</p>
+     {% endif %}
+   {% endif %}
+  </div>
+
+ <form class="" action="{{request.path}}" method="post">
+   {% csrf_token %}
+   <div class="row">
+     <div class="col-12 col-md-4">
+       <p>{{form.date.label_tag}}{{form.date}}</p>
+       <p class="">{% autoescape off %} {{form.errors.date}} {% endautoescape %}</p>
+     </div>
+     <div class="col-12 col-md-4">
+       <p>{{form.heure_debut.label_tag}}{{form.heure_debut}}</p>
+       <p class="">{% autoescape off %} {{form.errors.heure_debut}}{% endautoescape %}</p>
+     </div>
+     <div class="col-12 col-md-4">
+       <p>{{form.heure_fin.label_tag}}{{form.heure_fin}}</p>
+       <p class="">{% autoescape off %} {{form.errors.heure_fin}} {% endautoescape %}</p>
+     </div>
+     <div class="form-check mt-2">
+       {% if present_ %}
+       <p><label for="presence" class="form-check-label d-inline-block me-2"> Présent: </label><input type="checkbox" name="presence" value="" class="form-check-input" id="presence" checked></p>
+       {% else %}
+       <p><label for="presence" class="form-check-label d-inline-block me-2"> Présent: </label><input type="checkbox" name="presence" value="" class="form-check-input" id="presence" ></p>
+       {% endif %}
+     </div>
+     <div class="my-2 text-end">
+       <button   type="submit" name="" class="btn btn-primary" id="register">Enregister</button>
+     </div>
+   </div>
+
+ </form>
+
+
+</div>
+<div class="">
+
+<div class="my-4">
+  Nombre d'heures d'absences total du professeur: <span class="fw-bold violet">{{heures}} </span>
+
+</div>
+
+</div>
+
+
+
+<script type="text/javascript" src="{% static 'vitrine/node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}">
+    </script>
+{% endblock %}

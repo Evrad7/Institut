@@ -1,0 +1,38 @@
+{% extends "direction/base.html" %}
+{% load i18n admin_modify  %}
+
+{% block message %}
+
+<div class="my-5">
+	<h2> SELECTION SPECIALITE POUR AJOUT DE COURS</h2>
+
+
+</div>
+
+ {% endblock %}
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=6 %}
+
+<p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+  Selectionnnez une specialité
+ </p>
+
+
+<div class="container   mt-4 ">
+  <ul style="list-style-type:none">
+    {% for specialite in specialites %}
+      <li class="mt-2 fs-5"> <a href="/direction/cours/ajout_cours/{{specialite.pk}}/?prev={{request.get_full_path}}" class="link-dark">
+        {{specialite.filiere.cycle.nom}}/{{specialite.filiere.nom}}/<span class="fw-bold violet">{{specialite.nom}}  {{specialite.niveau}}</span>
+        </a></li>
+    {% endfor %}
+
+  </ul>
+<div class="mt-5">
+  {% include "direction/button-retour.html" %}
+</div>
+</div>
+
+
+<!--{{form.media}}-->
+{% endblock %}

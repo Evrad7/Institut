@@ -1,0 +1,40 @@
+{% extends "direction/base.html" %}
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+    Modification du cours
+ </p>
+
+{% endblock %}
+
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=6 %}
+
+<p>
+  Spécialités:<span class="fw-bold violet">{% for specialite in cours.specialite_set.all %}
+  {{specialite.filiere.cycle.nom}}/{{specialite.filiere.nom}}/{{specialite.nom}}  {{specialite.niveau}}
+ {% endfor %}</span>
+</p>
+<div class="container row  mt-4 mb-5 ">
+    <div class="col-12  col-lg-8 mt-2">
+
+      <form method="post" class="form-direction" enctype="multipart/form-data" action="{{request.path}}">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class=" d-flex justify-content-between mt-5">
+        {% include "direction/button-retour.html" %}
+
+         <input type="submit" value="Modifier" class="btn btn-primary fw-bold text-light " name="">
+      </div>
+
+      </form>
+    </div>
+
+  </div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,331 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta  name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+
+    <title>blog</title>
+   <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/css_personalise.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/bootstrap-icons.css' %}">
+
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="bg-dark header-blog header position-relative" >
+        <div class="container position-relative">
+          <div class="logo postition-abolute">
+            <img src="{% static 'vitrine/images/logo-ecole.png' %}" alt="" width="200px" height="100px">
+          </div>
+          <div class="display-3  text-white position-absolute text-uppercase fw-bold slogan">
+                <p style="transform:translateX(-60px)"> Le journal TML <br> <br> <br>
+
+                Dernieres nouvelles de l'Ecole </p>
+
+          </div>
+
+
+        </div>
+      </div>
+
+        {% include "vitrine/menu.html" with page=5 %}
+
+        <div class="bg-secondary my-5   border border-primary  ">
+
+
+          <h2 class="text-white  tml fw-bold display-3">Un nouvel laboratoire ouvert</h2>
+
+          <div class="ratio ratio-4x3 mb-5 mt-0  ">
+            <video poster="{%  static 'vitrine/images/lab-3.jpg' %}"  controls poster="posterimage.jpg" class="">
+              <source src="{%  static 'blog/videos/y2mate.com - DADJU ft Imen Es Chelou Clip Vidéo_480p.mp4' %}" >
+            </video>
+          </div>
+        </div>
+
+        <div class="row">
+         <div class="col-12 col-md-8">
+            <img src="{% static 'vitrine/images/bus-3.jpg' %}" alt="bus-Ecole-tml" class="img-fluid border border-primary">
+            <p class="display-4 fw-bold  tml-title-article text-dark"> Un nouveau bus à l'université</p>
+            <p class="text-justify">
+              -	Les différents règlements intérieurs ont intégré la lutte contre la drogue, la
+              violence sous toutes les formes et les hystéries collectives dans les enceintes scolaires.
+             -	Les  cas de violence avérés ont été traduits en conseil de discipline et sanctionné
+             es conformément aux dispositions des règlements intérieurs des établissements concernés.
+             Toutefois l’exploitation des rapports de conseil de discipline nous a obligés d’apport
+             er des corrections à certaines décisions de conseil de discipline qui étaient de nature à enven
+             imer l’atmosphère dans la communauté éducative (Lycée Technique Bangang)
+             -	Existence dans les structures des messages éducatifs sensibilisant contre la drogue et la violence.
+             -	Nous avons fait large diffusion de la correspondance N°21/15/LC/MINESEC/IGS du 21/12/2015 r
+             elative aux déviances pendant les manifestations de la semaine de la jeunesse......<a href="#" class="link-primary">Lire plus</a>
+
+
+            </p>
+         </div>
+         <div class="col-12 col-md-4">
+           <div class="row">
+           <div class="col-6 col-md-12">
+             <img src="{% static 'vitrine/images/bus.jpg' %}" alt="bus-Ecole-tml" class="img-fluid  border border-primary" >
+             <p class="fs-3 fw-bold  tml text-primary ">Derniere incursion</p>
+             <p class="text-justify">
+               -	Les différents règlements intérieurs ont intégré la lutte contre la drogue, laSEC/IGS du 21/12/2015 r
+              elative aux déviances pendant les manifestations de la semaine de la jeunesse......<a href="#" class="link-primary">Lire plus</a>
+           </div>
+
+           <div class="col-6 col-md-12">
+                <img src="{% static 'vitrine/images/etudiante2.jpg' %}" alt="bus-Ecole-tml " class="img-fluid border border-primary" >
+             <p class="fs-3 fw-bold  tml text-primary">Derniere incursion</p>
+             <p class="text-justify">
+               -	Les différents règlements intérieurs ont intégré la lutte contre la drogue, la
+               violence sous toutes les formes et les hystéries collectives dans les enceintes scolaires.
+              jeunesse......<a class="link-primary">Lire plus</a>
+           </div>
+
+         </div>
+        </div>
+        <div class= "row bg-light mb-2">
+          <div class="col-12 col-md-6">
+            <div class="row mb-2">
+              <div class="col-6 col-md-12 mt-2" style="vertical-align:center;">
+              <a href="#" class="text-decoration-none link-dark">
+                <img src="{% static 'vitrine/images/bus.jpg' %}" alt="bus-Ecole-tml" class="img-fluid  border border-primary" >
+              </a>
+              </div>
+              <div class="col-6 col-md-12">
+              <a href="#" class="text-decoration-none link-dark">
+                <span class="fs-3 fw-bold  tml text-primary py-0  mx-0 mb-sm-4 ">Derniere incursion</span>
+                <p class="text-justify">
+                  <span class="d-block d-sm-none fw-bold fs-6">visite des étudiants à Batcham</span> <span class="d-none d-sm-block">différents règlements intérieurs ont intégré la lutte contre la drogue, laSEC/IGS du 21/12/2015 r
+                 elative aux déviances pendant les manifestations de la semaine de la jeunesse......
+                </span>
+              </a>
+              </div>
+            </div>
+
+            <div class="row mt-2">
+              <div class="col-6 col-md-12 mt-2">
+                <a href="#" class="text-decoration-none link-dark">
+                  <img src="{% static 'vitrine/images/bus.jpg' %}" alt="bus-Ecole-tml" class="img-fluid  border border-primary" >
+                </a>
+              </div>
+              <div class="col-6 col-md-12">
+                <a href="#" class="text-decoration-none link-dark">
+                  <i class="bi bi-camera-video-fill display-6 text-danger"></i>  <span class="fs-3 fw-bold  tml text-primary py-0  mx-0 mb-sm-4 ">Nouveau club</span>
+                  <p class="text-justify">
+                  <span class=" fw-bold fs-6">visite des étudiants à Batcham</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="row mt-2">
+
+              <div class="col-6 col-md-12 mt-2">
+                <a href="#" class="text-decoration-none link-dark">
+                <img src="{% static 'vitrine/images/bus.jpg' %}" alt="bus-Ecole-tml" class="img-fluid  border border-primary" >
+              </a>
+              </div>
+              <div class="col-6 col-md-12">
+              <a href="#" class="text-decoration-none link-dark">
+                <span class="fs-3 fw-bold  tml text-primary py-0  mx-0 mb-sm-4 ">Derniere incursion</span>
+                <p class="text-justify">
+                  <span class="d-block d-sm-none fw-bold fs-6">visite des étudiants à Batcham</span> <span class="d-none d-sm-block">différents règlements intérieurs ont intégré la lutte contre la drogue, laSEC/IGS du 21/12/2015 r
+                 elative aux déviances pendant les manifestations de la semaine de la jeunesse.....
+                </span>
+              </a>
+              </div>
+
+            </div>
+            <div class="row mt-2">
+              <div class="col-6 col-md-12 mt-2">
+              <a href="#" class="text-decoration-none link-dark">
+                <img src="{% static 'vitrine/images/bus.jpg' %}" alt="bus-Ecole-tml" class="img-fluid  border border-primary" >
+              </a>
+              </div>
+              <div class="col-6 col-md-12">
+                <a href="#" class="text-decoration-none link-dark">
+                  <i class="bi bi-camera-video-fill display-6 text-danger"></i>  <span class="fs-3 fw-bold  tml text-primary py-0  mx-0 mb-sm-4 ">Nouveau club</span>
+                  <p class="text-justify">
+                  <span class=" fw-bold fs-6">visite des étudiants à Batcham</span>
+                </a>
+              </div>
+
+            </div>
+            <div class="row mt-2">
+              <div class="col-6 col-md-12 mt-2">
+                <a href="#" class="text-decoration-none link-dark">
+                  <img src="{% static 'vitrine/images/bus.jpg' %}" alt="bus-Ecole-tml" class="img-fluid  border border-primary" >
+                </a>
+              </div>
+              <div class="col-6 col-md-12">
+                <a href="#" class="text-decoration-none link-dark">
+
+                  <span class="fs-3 fw-bold  tml text-primary py-0  mx-0 mb-sm-4 ">Derniere incursion</span>
+                  <p class="text-justify">
+                  <span class="d-block d-sm-none fw-bold fs-6">visite des étudiants à Batcham</span> <span class="d-none d-sm-block">différents règlements intérieurs ont intégré la lutte contre la drogue, laSEC/IGS du 21/12/2015 r
+                    elative aux déviances pendant les manifestations de la semaine de la jeunesse.....
+                </span>
+              </a>
+              </div>
+
+            </div>
+            <div class="row mt-2">
+
+              <div class="col-6 col-md-12 mt-2">
+                <img src="{% static 'vitrine/images/bus.jpg' %}" alt="bus-Ecole-tml" class="img-fluid  border border-primary" >
+                </a>
+              </div>
+              <div class="col-6 col-md-12">
+                <a href="#" class="text-decoration-none link-dark">
+                  <i class="bi bi-camera-video-fill display-6 text-danger"></i>  <span class="fs-3 fw-bold  tml text-primary py-0  mx-0 mb-sm-4 ">Nouveau club</span>
+                  <p class="text-justify">
+                  <span class=" fw-bold fs-6">visite des étudiants à Batcham</span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-12 col-md-6 mt-3 mt-md-0">
+            <div class="mb-5">
+              <img src="{% static 'vitrine/images/etudiant.jpg' %}" alt="bus-Ecole-tml" class="img-fluid border border-primary">
+              <p class="display-4 fw-bold  tml-title-article text-dark"> Un nouveau bus à l'université</p>
+              <p class="text-justify">
+                -	Les différents règlements intérieurs ont intégré la lutte contre la drogue, la
+                violence sous toutes les formes et les hystéries collectives dans les enceintes scolaires.
+               -	Les  cas de violence avérés ont été traduits en conseil de discipline et sanctionné
+               osphère dans la communauté éducative (Lycée Technique Bangang)
+               -	Existence dans les structures des messages éducatifs sensibilisant contre la drogue et la violence.
+               -	Nous avons fait large diffusion de la correspondance N°21/15/LC/MINESEC/IGS du 21/12/2015 r
+               elative aux déviances pendant les manifestations de la semaine de la jeunesse......<a class="link-primary">Lire plus</a>
+
+              </p>
+              <hr>
+            </div>
+
+            <div class="mb-5">
+              <img src="{% static 'vitrine/images/etudiante1.jpg' %}" alt="bus-Ecole-tml" class="img-fluid border border-primary">
+              <p class="display-4 fw-bold  tml-title-article text-dark"> Un nouveau bus à l'université</p>
+              <p class="text-justify">
+                -	Les différents règlements intérieurs ont intégré la lutte contre la drogue, la
+                violence sous toutes les formes et les hystéries collectives dans les enceintes scolaires.
+               -	Les  cas de violence avérés ont été traduits en conseil de discipline et sanctionné
+               osphère dans la communauté éducative (Lycée Technique Bangang)
+               -	Existence dans les structures des messages éducatifs sensibilisant contre la drogue et la violence.
+               -	Nous avons fait large diffusion de la correspondance N°21/15/LC/MINESEC/IGS du 21/12/2015 r
+               elative aux déviances pendant les manifestations de la semaine de la jeunesse......<a class="link-primary">Lire plus</a>
+
+
+              </p>
+                <hr>
+            </div>
+
+            <div class="mb-5">
+              <img src="{% static 'vitrine/images/bus.jpg' %}" alt="bus-Ecole-tml" class="img-fluid border border-primary">
+              <p class="display-4 fw-bold  tml-title-article text-dark"> Un nouveau bus à l'université</p>
+              <p class="text-justify">
+                -	Les différents règlements intérieurs ont intégré la lutte contre la drogue, la
+                violence sous toutes les formes et les hystéries collectives dans les enceintes scolaires.
+               -	Les  cas de violence avérés ont été traduits en conseil de discipline et sanctionné
+               osphère dans la communauté éducative (Lycée Technique Bangang)
+               -	Existence dans les structures des messages éducatifs sensibilisant contre la drogue et la violence.
+               -	Nous avons fait large diffusion de la correspondance N°21/15/LC/MINESEC/IGS du 21/12/2015 r
+               elative aux déviances pendant les manifestations de la semaine de la jeunesse.....<a class="link-primary">Lire plus</a>
+
+
+              </p>
+              <hr>
+            </div>
+
+            <div class="mb-5 d-none d-lg-block">
+              <img src="{% static 'vitrine/images/menu-cantine.jpg' %}" alt="bus-Ecole-tml" class="img-fluid border border-primary">
+              <p class="display-4 fw-bold  tml-title-article text-dark"> Un nouveau bus à l'université</p>
+              <p class="text-justify">
+                -	Les différents règlements intérieurs ont intégré la lutte contre la drogue, la
+                violence sous toutes les formes et les hystéries collectives dans les enceintes scolaires.
+               -	Les  cas de violence avérés ont été traduits en conseil de discipline et sanctionné
+               osphère dans la communauté éducative (Lycée Technique Bangang)
+               -	Existence dans les structures des messages éducatifs sensibilisant contre la drogue et la violence.
+               -	Nous avons fait large diffusion de la correspondance N°21/15/LC/MINESEC/IGS du 21/12/2015 r
+               elative aux déviances pendant les manifestations de la semaine de la jeunesse......<a class="link-primary">Lire plus</a>
+
+
+              </p>
+                <hr>
+            </div>
+
+          </div>
+        </div>
+        <div class="my-5 row">
+          <h2 class="display-3 fw-bold">Archive</h2>
+          <div class="row ">
+            <div class="col-6 col-lg-3">
+              <div class="row justify-content-center">
+                <div class="col-12">
+                  <label for="annee">Année: </label>
+                </div>
+                <div class="col-12">
+                  <select class="form-control" name="annee" id="annee">
+                    <option value="2035" selected>2035</option>
+                    <option value="2034">2034</option>
+                    <option value="2033">2033</option>
+                    <option value="2032">2032</option>
+                    <option value="2031">2031</option>
+                    <option value="2030">2030</option>
+
+
+                  </select>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-6 col-lg-3">
+              <div class="row justify-content-center">
+                <div class="col-12">
+                  <label for="mois">Mois: </label>
+                </div>
+                <div class="col-12">
+                  <select class="form-control" name="mois" id="mois">
+
+                    <option value="Janvier">Janvier</option>
+                    <option value="Fevrier">Fevrier</option>
+                    <option value="Mars">Mars</option>
+                    <option value="Avril">Avril</option>
+                    <option value="Mais">Mais</option>
+                    <option value="Juin">Juin</option>
+                    <option value="Juillet">Juillet</option>
+                    <option value="Août">Août</option>
+                    <option value="Septembre">Septembre</option>
+                    <option value="Octobre">Octobre</option>
+                    <option value="Novembre">Novembre</option>
+                    <option value="Decembre">Decembre</option>
+
+
+
+                  </select>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          {% include "vitrine/footer.html" %}
+          </div>
+
+
+    <script type="text/javascript" src="{% static 'vitrine/node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}">
+    </script>
+    <script type="text/javascript" src="{% static 'vitrine/js/jquery-3.6.0.js' %}" >
+
+    </script>
+    <script type="text/javascript" src="{% static 'vitrine/js/owl.carousel.min.js' %}">
+
+    </script>
+    <script type="text/javascript" src="{% static 'vitrine/js/personnel.js' %}"> </script>
+
+  </body>
+  <script type="text/javascript" src="{% static 'vitrine/js/intersection-observer.js' %}">
+
+    </script>
+</html>

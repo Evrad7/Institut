@@ -1,0 +1,41 @@
+{% extends "direction/base.html" %}
+
+
+
+
+{% block message %}
+
+<div class="my-5">
+	 <h2> SUPPRESSION  PARENT</h2>
+
+</div>
+ 
+
+{% endblock %}
+
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=2 %}
+
+
+<div class="mt-5 border border-primary py-2 px-4">
+	<h2>  Vous ne pouvez pas supprimer le parent sans supprimer l'étudiant cependant,  vous pouvez <span class="violet">remplacer</span> le parent ou le <span class="violet">modifier</span></h2>
+	<div class="row  mt-5">
+	
+		<div class="col-6 col-sm-4">
+			<a href="{% url 'direction:recherche_ancien_etudiant' next_=4  %}?prev={{request.path}}" class="btn btn-primary">Remplacer un parent</a>
+		</div>
+		<div class="col-6 col-sm-4">
+			<a href="{% url 'direction:recherche_parent' %}?prev={{request.path}}" class="btn btn-primary">Modifier un parent</a>
+		</div>
+	</div>
+</div>
+<div class="mt-5">
+	{% include "direction/button-retour.html" %}
+	
+</div>
+
+
+
+
+{% endblock %}

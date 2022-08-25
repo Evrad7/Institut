@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta  name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <title>Contact</title>
+     <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/css_personalise.css' %}">
+  </head>
+
+  <body style="background-color:rgba(250, 250, 250);">
+    <div class="container" >
+       <div class="header-contacter bg-dark">
+         <div class="pt-5">
+           <div class="text-danger text-uppercase display-6 fw-bold ">
+             <p class="text-center">Nous sommes disponibles 24h/24 pour toutes vos préucupations</p>
+           </div>
+
+
+         </div>
+         <div class="text-center mt-5">
+           <div class="btn btn-warning rounded-0  text-light  text-uppercase fs-4 " >
+              Connecter
+           </div>
+         </div>
+         <h2 class="display-4 text-uppercase fw-bold text-center text-light"> Prenez <span class="text-warning">contact</span>
+            avec nous ici et maintenant </h2>
+
+       </div>
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="container mx-5  mr-3">
+
+        {% include "vitrine/menu.html" with page=7 %}
+        <div class="d-flex justify-content-center align-items-center" style="min-height:700px; ">
+          <div class="border border-danger" style="width:400px;" >
+            <form class="bg-dark py-1" action="" method="post">
+              <div class=" my-5 mx-3  form-tml ">
+
+
+                <input type="text" name="" value="" placeholder="Votre nom" class="rounded-0 w-100   ">
+                  <label for="nom" class="">Votre nom</label>
+              </div>
+              <div class="my-5 mx-3 form-tml">
+                <input type="email" name="email" value="" class=" rounded-0 w-100 " id="email" placeholder="Votre email">
+                <label for="email" class="">Votre email</label>
+
+              </div>
+              <div class="my-5 mx-3 form-tml position-relative">
+                <textarea name="message" rows="8" cols="30" class="rounded-0 w-100 border border-danger" id="message"></textarea>
+                <label for="message" class="position-absolute d-block" style="top:20px; left:20;">Votre message</label>
+              </div>
+              <div class="text-center mb-2">
+                <input type="submit" name="" value="Envoyer" class=" btn btn-danger text-white rounded-0 fw-bold" id="send">
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="row mx-md-5 px-md-5">
+          <div class="col-6 col-sm-3 ">
+            <p><i class="bi bi-whatsapp text-success"></i> 682988081</p>
+          </div>
+          <div class="col-6 col-sm-3 ">
+            <p><i class="bi bi-twitter text-primary"></i> Ecole-tml</p>
+          </div>
+          <div class="col-6 col-sm-3 ">
+            <p><i class="bi bi-facebook text-primary"></i> Ecole TML Officiel</p>
+          </div>
+          <div class="col-6 col-sm-3 ">
+            <p><i class="bi bi-telegram"></i> @Telegram-of</p>
+          </div>
+        </div>
+
+
+          {% include "vitrine/footer.html" %}
+
+          </div>
+
+
+
+          <script type="text/javascript" src="{% static 'vitrine/node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}">
+    </script>
+
+          <script type="text/javascript" src="{% static 'vitrine/js/intersection-observer.js' %}">
+
+          </script>
+
+  </body>
+</html>

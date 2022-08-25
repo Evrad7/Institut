@@ -1,0 +1,97 @@
+{% extends "direction/base.html" %}
+{% load static %}
+
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+ Consulter les cours de vos étudiants
+ </p>
+
+{% endblock %}
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=6 %}
+<div class="my-3 ">
+
+
+</div>
+
+<div class="mt-2">
+<a href="/direction/cours/selection_specialite/?prev='1'" class="text-decoration-none fs-3  violet"> <i class=" bi bi-plus violet fs-2"></i> Ajouter un cours</a>
+
+</div>
+<div class="row">
+ <div class=" col-12 col-lg-9 overflow-auto">
+
+  <table class="  table  table-light table-borderless table-hover table-bordered my-4 " id="table-list">
+   <tr>
+     <th class="text-uppercase violet fw-bold"> Titre</th>
+     <th class="text-uppercase violet fw-bold"> Discipline</th>
+     <th class="text-uppercase violet fw-bold"> Auteur</th>
+     <th class="text-uppercase violet fw-bold"> Support</th>
+     <th class="text-uppercase violet fw-bold"> Durée</th>
+     <th class="text-uppercase violet fw-bold"> Specialite</th>
+
+
+   </tr>
+
+    {% for cours_ in cours %}
+      <tr url="{{cours_.get_absolute_url}}" class="item">
+
+        <td>{{cours_.titre}}</td>
+        <td>{{cours_.discipline}}</td>
+        <td>{{cours_.auteur}}</td>
+        <td>{{cours_.support}}</td>
+        <td>{{cours_.duree}}</td>
+        <td>{% for specialite in cours_.specialite_set.all %}
+            {{specialite.nom}} {{specialite.niveau}}
+           {% endfor %}</td>
+
+
+      </tr>
+    {% empty %}
+      <h3 class="text-center"> Aucun cours trouvé</h3>
+    {% endfor %}
+
+ </table>
+
+ <div class="text-end row">
+    <div class="col-6">
+     <p></p>
+    </div>
+    <div class="col-6">
+       <p class="fw-bold violet" fs-2>{{length_cours}} cours</p>
+    </div>
+
+
+
+ </div>
+</div>
+<div class="col-6 col-lg-3 mt-5 mt-lg-1">
+  <h4 class="violet fw-bold">Trier par Spécialité </h4>
+   <p><a href="{{request.path}}" class="link-primary">supprimer le filtre</a></p>
+   <ul>
+      {% for specialite in specialites %}
+        <li class="mt-2" style="cursor:pointer" class="">
+        <a href="?specialite={{specialite.pk}} "  class="{% if specialite_active is specialite.pk %}
+                                                        violet
+                                                        {% else %}
+                                                        link-dark
+                                                        {% endif %}  text-decoration-none ">
+          {{specialite.filiere.cycle.nom}}
+          /{{specialite.filiere.nom}}/ <span class="fw-bold">{{specialite.nom}} {{specialite.niveau}}</span></a></li>
+
+      {% endfor %}
+   </ul>
+</div>
+
+
+
+</div>
+
+
+
+
+<script type="text/javascript" src="{% static 'vitrine/node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}">
+    </script>
+{% endblock %}

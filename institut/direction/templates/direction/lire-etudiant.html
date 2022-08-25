@@ -1,0 +1,105 @@
+{% extends "direction/base.html" %}
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+    Details de l'étudiant
+ </p>
+
+{% endblock %}
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=2 %}
+
+<div class="">
+   <a href="{% url 'direction:liste_etudiant' %}" class="violet"> liste des étudiant</a>
+   <div class="text-center">
+     <img src="{{etudiant.url}}">
+   </div>
+
+   <div class="fw-bold fs-3 row">
+   <div class="col-12 col-md-6">
+     <p>
+      <span class="violet"> Matricule:</span> {{etudiant.matricule}}
+     </p>
+     <p>
+      <span class="violet"> Noms:</span> {{etudiant.noms}} 
+     </p>
+     <p>
+      <span class="violet"> Prenoms:</span> {{etudiant.prenoms}} 
+     </p>
+     <p>
+      <span class="violet"> Date de naissance:</span> {{etudiant.date_de_naissance}} 
+     </p>
+     <p>
+      <span class="violet"> Lieu de naissance:</span> {{etudiant.lieu_de_naissance}} 
+     </p>
+      <p>
+      <span class="violet"> parent:</span> <a href="{{etudiant.parent.get_absolute_url}}" class="text-decoration-none ">{{etudiant.parent.noms}} {{etudiant.parent.prenoms}} </a>
+     </p>
+     <p>
+      <span class="violet"> Sexe:</span> {{etudiant.sexe}} 
+     </p>
+     <p>
+       <span class="violet">Filière:</span> {{etudiant.specialite.filiere.nom}} 
+     </p>
+     <p>
+       <span class="violet">Specialité:</span> {{etudiant.specialite.nom}} 
+     </p>
+    
+   </div>
+    <div class="col-12 col-md-6">
+     <p>
+      <span class="violet"> Numero de telephone:</span> {{etudiant.numero_telephone}} 
+     </p>
+     <p>
+      <span class="violet"> Email:</span> {{etudiant.email}} 
+     </p>
+     <p>
+      <span class="violet"> Nationalite:</span> {{etudiant.nationalite}} 
+     </p>
+     <p>
+       <span class="violet">Numero de CNI:</span> {{etudiant.numero_CNI}} 
+     </p>
+     <p>
+       <span class="violet">Statut:</span> {% if etudiant.statut %}inscrit
+              {% else %} Non inscrit{% endif %} 
+     </p>
+     <p>
+       <span class="violet">Nom de l'ancienne école:</span> {{etudiant.ancienne_ecole}} 
+     </p>
+     <p>
+       <span class="violet">Clubs:</span> {% for club in etudiant.club %} 
+                {{club.nom}}, 
+              {% empty %} aucun club
+              {% endfor %}
+     </p>
+     <p>
+       <span class="violet">Cantine:</span> {% if etudiant.cantine %} abonné
+                {% else %}  non abonné
+                {% endif %}
+     </p>
+
+      <p>
+       <span class="violet">Transport:</span> {% if etudiant.transport %} abonné
+                {% else %}  non abonné
+                {% endif %}
+     </p>
+
+   </div>
+   
+     
+   </div>
+
+    <div class="row my-5">
+      <div class="col-12 col-sm-6 text-center">
+        <a href="{% url 'direction:modification_etudiant' pk=etudiant.pk %}" class="btn btn-primary "> modifier l'étudiant</a>
+      </div>
+      <div class="col-12 col-sm-6 mt-3 mt-sm-0 text-center" >
+        <a href="{% url 'direction:suppression_etudiant' pk=etudiant.pk %}" class="btn btn-primary"> supprimer l'étudiant</a>
+      </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,205 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta  name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+
+    <title>inscription</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/css_personalise.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/bootstrap-icons.css' %}">
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="bg-dark header-inscription header position-relative hidden-tml" >
+        <div class="container position-relative">
+          <div class="logo postition-abolute">
+            <img src="{% static 'vitrine/images/logo-ecole.png' %}" alt="" width="200px" height="100px">
+          </div>
+          <div class="display-4  text-white position-absolute text-uppercase fw-bold slogan">
+                <p style="transform:translateX(-60px)"> L'école de l'excellence <br> <br>
+
+                Inscrivez vous maintenant </p>
+                {% if user.is_authenticated %}
+                  <p class="display-4 fw-bold">salut <span class="text-warning ">{{user.username}}</span> </p>
+                {% else %}
+                <a class="btn btn-warning rounded-0 position-absolute text-light fs-4 "
+                 href="{% url 'authentification:login' %}">
+                   Connecter
+                </a>
+                {% endif %}
+          </div>
+
+
+        </div>
+      </div>
+
+        {% include "vitrine/menu.html" with page=2 %}
+
+
+        <div class="container bg-light mt-3">
+          <p class=" fs-1 text-dark  text-center tml fw-bold  hidden-tml">Inscrivez vous maintenant  et obtenez une réduction de
+            <span class="text-success p-2 border border-primary rounded-circle bg-warning">-25%</span>
+          </p>
+          <p class="fs-2 text-left text-dark tml fw-bold hidden-tml"> Diplomes obtenus</p>
+          <div class="row hidden-tml">
+            <div class="col-12 col-md-6 col-lg-3 mt-3">
+                <div class="text-center border border-primary card">
+                  <img src="{% static 'vitrine/images/certificate.png' %}" alt="certificate"  class="mx-auto" width="100px" height="100px">
+                  <div class="card-body">
+                    <h2 class="text-uppercase card-title text-dark"> Ingenieur</h2>
+                    <p class="card-text"> Cycle Ingenieur reconnu dans le monde entier.
+                      Diplome solide qui ouvre de nombreuses voies
+                        <a href="#"  class="text-decoration-none link-primary">Cliquez ici</a> pour voir les filieres disponibles et les modalité d'acces
+                    </p>
+                  </div>
+
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 mt-3">
+                <div class="text-center border border-primary card">
+                  <img src="{% static 'vitrine/images/certificate.png' %}" alt="certificate"  class="mx-auto" width="100px" height="100px">
+                  <div class="card-body">
+                    <h2 class="text-uppercase card-title text-dark"> Doctorat</h2>
+                    <p class="card-text"> Cycle Ingenieur reconnu dans le monde entier.
+                      Diplome solide qui ouvre de nombreuses voies
+                        <a href="#"  class="text-decoration-none link-primary">Cliquez ici</a> pour voir les filieres disponibles et les modalité d'acces
+                    </p>
+                  </div>
+
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 mt-3">
+                <div class="text-center border border-primary card">
+                  <img src="{% static 'vitrine/images/certificate.png' %}" alt="certificate"  class="mx-auto" width="100px" height="100px">
+                  <div class="card-body">
+                    <h2 class="text-uppercase card-title text-dark"> Licence</h2>
+                    <p class="card-text"> Cycle Ingenieur reconnu dans le monde entier.
+                      Diplome solide qui ouvre de nombreuses voies
+                        <a href="#"  class="text-decoration-none link-primary">Cliquez ici</a> pour voir les filieres disponibles et les modalité d'acces
+                    </p>
+                  </div>
+
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-3 mt-3">
+                <div class="text-center border border-primary card">
+                  <img src="{% static 'vitrine/images/certificate.png' %}" alt="certificate"  class="mx-auto" width="100px" height="100px">
+                  <div class="card-body">
+                    <h2 class="text-uppercase card-title text-dark"> BTS</h2>
+                    <p class="card-text"> Cycle Ingenieur reconnu dans le monde entier.
+                      Diplome solide qui ouvre de nombreuses voies
+                        <a href="#"  class="text-decoration-none link-primary">Cliquez ici</a> pour voir les filieres disponibles et les modalité d'acces
+                    </p>
+                  </div>
+
+                </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="container mt-4 mb-5  "  >
+           <h2 class="disply-3 text-danger fw-bold bg-dark "><i class="bi bi-dash-lg"></i> Spécialités</h2>
+           <div class=" row border border-secondary" >
+             <div class="col-12 col-md-4 hidden-tml search">
+
+               <input type="search" name="specialite" value=""  style=""  class="form-control form-control-lg border-top-0 border-bottom-0
+               border-start-0 rounded-0 border-end border-end-secondary"
+                placeholder="Rechercher" >
+             </div>
+             <div class="col-12 col-md-4  ">
+               <div class="dropdown  search-1">
+                <button class="btn btn-white w-100 border-top-0 border-bottom-0 border-start-0 border-end rounded-0 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                   <div class="d-flex justify-content-between search-1">
+                     <label for="cycle" class="mt-1">Cycle: </label>
+                     <input pk_cycle="tout" type="search" name="cycle" id="cycle"  value="Tout"  style="cursor:pointer" readonly placeholder="Cycle" class="bg-white  form-control  border-0 ">
+                     <i class="bi bi-chevron-down me-4 "></i>
+                   </div>
+
+                </button>
+                <ul class="dropdown-menu w-75"style="top:125; left:0%;" aria-labelledby="dropdownMenuButton1">
+                  <li><span class="dropdown-item" pk_cycle="tout">Tout</span></li>
+                  {% for cycle in cycles %}
+                  <li><span class="dropdown-item" pk_cycle="{{cycle.pk}}">{{cycle.nom}}</span></li>
+                  {% endfor %}
+                </ul>
+              </div>
+             </div>
+
+             <div class="col-12 col-md-4 ">
+               <div class="dropdown search-2">
+                <button class="btn btn-white w-100 border-top-0 border-bottom-0 border-start-0 border-end rounded-0 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                   <div class="d-flex justify-content-start search-2 ">
+                     <label for="filiere" class="mt-1">Spécialité: </label>
+                     <input  pk_filiere="tout" type="search" name="filiere" id="filiere" readonly value="Tout" style="cursor:pointer" class="bg-white readonly form-control  border-0">
+                     <i class="bi bi-chevron-down me-4 "></i>
+                   </div>
+
+                </button>
+                <ul class="dropdown-menu w-75"style="top:125; left:0%;" aria-labelledby="dropdownMenuButton1">
+                  <li><span class="dropdown-item" pk_filiere="tout">Tout</span></li>
+                  {% for filiere in filieres %}
+                  <li><span class="dropdown-item" pk_filiere="{{filiere.pk}}">{{filiere.cycle.nom}}/{{filiere.nom}}</span></li>
+                  {% endfor %}
+
+                </ul>
+              </div>
+             </div>
+           </div>
+           <button type=""  style="width:125px; height:40px; white-space:nowrap;" id="form" name="button" class="btn btn-dark mt-3">Rechercher</button>
+        </div>
+
+
+        </div>
+        <div class="container bg-light">
+          <div class="row fs-6 hidden-tml "id="specialites">
+            {% for specialite in specialites %}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3  my-2">
+              <div class="filieres text-center"> <i class="bi bi-dash text-danger"></i> <a href="#" class="text-decoration-none link-dark">{{specialite.filiere.cycle.nom}}/{{specialite.filiere.nom}}/ <span class="fw-bold">{{specialite.nom}} {{specialite.niveau}}</span></a> </div>
+            </div>
+            {% endfor %}
+        </div>
+          </div>
+          <hr>
+          <div class="container my-4">
+            <div class="container mt-2 mb-5">
+              <p class="display-3 text-warning bg-dark text-center tml fw-bold hidden-tml ">Partenaires</p>
+              <div class=" row bg-light mt-5">
+                {% for partenaire in partenaires %}
+               <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-5 ">
+                  <div class="partenariat">
+                    <h3 class="text-center fw-bold">{{partenaire.nom}}</h3>
+                    <p class="text-center">{{partenaire.description}}
+                    </p>
+                  </div>
+               </div>
+               {% endfor %}
+              </div>
+
+            </div>
+
+            {% include "vitrine/footer.html" %}
+
+          </div>
+
+    </div>
+
+     <script type="text/javascript" src="{% static 'vitrine/node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}"></script>
+        <script type="text/javascript" src="{% static 'vitrine/js/jquery-3.6.0.js' %}">
+    </script>
+
+        <script type="text/javascript" src="{% static 'vitrine/js/inscription.js' %}"></script>
+        <script type="text/javascript" src="{% static 'vitrine/js/intersection-observer.js' %}">
+
+        </script>
+  </body>
+</html>

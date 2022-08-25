@@ -1,0 +1,115 @@
+{% extends "direction/base.html" %}
+{% load static %}
+
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+ Consulter les parents d'étudiants
+ </p>
+
+{% endblock %}
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=3 %}
+<div class="my-3 ">
+
+  <form action="{{request.path}}" method="get">
+  <div class="  row " >
+  <div class="col-12 col-sm-6 position-relative ">
+      <input type="search" name="search" class="form-control" style="height:40px;" placeholder="Rechercher un etudiant">
+    
+  </div>
+  <div class="col-12 col-sm-6  mt-4 mt-sm-0 p-0 position-relative " style="">
+
+  <label class="label-form " for="recherche" id="label-search">Rechercher par:</label>
+    <select class="form-select" name="search-by">
+      {% for key, option in option_search.items %}
+        <option value="{{key}}">{{option}}</option>
+      {% endfor %}
+
+      <option> Exemple</option>
+    </select>
+
+  </div>
+  <div class="col-6 col-sm-3  mt-3" >
+    <input type="number" name="nb" class="form-control" placeholder="nombre max" >
+  </div>
+
+  <div class="col-6 col-sm-3  py-0">
+    <button type="submit"  class="btn btn-primary mt-3" id="search" value="Rechercher">
+     <i class="bi bi-search text-white"></i> Rechercher </button>
+    
+  
+  </div>
+  
+
+ 
+  
+  
+
+</div>
+   
+</form>
+</div>
+<div>
+    <a href="{{request.path}}" class="violet"> tous les parents</a>
+</div>
+<div class="mt-2">
+<a href="{% url 'direction:insertion_parent' choice=0  %}" class="text-decoration-none fs-3  violet"> <i class=" bi bi-plus violet fs-2"></i> Ajouter un parent</a>
+
+</div>
+<div class="row">
+ <div class=" col-12 col-lg-9 overflow-auto">
+
+  <table class="  table  table-light table-borderless table-hover table-bordered my-4 " id="table-list">
+   <tr>
+     <th class="text-uppercase violet fw-bold"> Photo</td>
+     <th class="text-uppercase violet fw-bold"> Noms</td>
+     <th class="text-uppercase violet fw-bold"> Prenoms</td>
+     <th class="text-uppercase violet fw-bold"> Email</td>
+     <th class="text-uppercase violet fw-bold"> Numero de telephone</td>
+     <th class="text-uppercase violet fw-bold px-2"> Profession </td>
+     
+   </tr>
+  
+    {% for parent in parents %}
+      <tr url="{{parent.get_absolute_url}}" class="item">
+       
+        <td>{{parent.photo}}</td>
+        <td>{{parent.noms}}</td>
+        <td>{{parent.prenoms}}</td>
+        <td>{{parent.email}}</td>
+        <td>{{parent.numero_telephone}}</td>
+        <td>{{parent.profession_tuteur}}</td>
+        
+
+      </tr>
+    {% empty %}
+      <h3 class="text-center"> Aucun parent trouvé</h3>
+    {% endfor %}
+  
+ </table>
+
+ <div class="text-end row">
+    <div class="col-6">
+     <p></p>
+    </div>
+    <div class="col-6">
+       <p class="fw-bold violet" fs-2>{{parents.count}} parent{{parents.count|pluralize}}</p>
+    </div>
+
+  
+   
+ </div>
+</div>
+
+
+
+</div>
+ 
+
+
+
+<script type="text/javascript" src="{% static 'vitrine/node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}">
+    </script>
+{% endblock %}

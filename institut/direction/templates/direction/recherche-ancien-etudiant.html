@@ -1,0 +1,75 @@
+{% extends "direction/base.html" %}
+
+{{% block message %}
+
+<div class="my-5">
+	<h2> {% if progression %} INSCRIPTION ETUDIANT
+	     {% else %} IDENTIFIEZ L'ETUDIANT
+	     {% endif %}
+	     </h2> 
+	{% if progression %}
+	  	{% include "direction/progress-bar.html" with progress="33" %}
+	{% endif %}
+
+</div>
+ 
+ {% endblock %}
+
+{% block content %}
+<p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+  Remplissez le formulaire comme indiqué
+ </p>
+
+{% include "direction/vertical-bar.html" with onglet=2 %}
+
+<div class="container row justify-content-center ">
+
+
+ <h4 class="text-center pb-3 {% if  form.non_field_errors  %}
+   text-danger {% endif %}"> Entrez le matricule ou au moins le nom de l'étudiant</h4>
+	<div class="col-12 col-md-6 mt-2 mb-5">
+		<form method="post" action="{{request.path}}">
+
+		{% csrf_token %}
+		<div>
+			<label for={{form.matricule.id_for_label}} class="form-label">{{form.matricule.label}}</label>
+			{{form.matricule}}
+			
+			<span class="text-danger error"> {{form.matricule.errors}} </span>
+		 		
+		</div>
+
+		<div>
+			<label for={{form.nom.id_for_label}} class="form-label">{{form.nom.label}}</label>
+		    {{form.nom}}
+		   <span class="text-danger error"> {{form.nom.errors}} </span>
+
+		</div>
+		
+		<div>
+			<label for={{form.prenom.id_for_label}} class="form-label">{{form.prenom.label}}</label>
+		    {{form.prenom}}
+		    <span class="text-danger error"> {{form.prenom.errors}} </span>
+
+		</div>
+		<div>
+			{% if errors_ %}
+			  {% for  error in errors_ %}
+			  	<span class="text-danger error"> {{error}} </span>
+			  {% endfor %}
+			{% endif %}
+		</div>
+		<div class=" d-flex justify-content-between mt-5">
+			   {% include "direction/button-retour.html" %}
+			   <input type="submit" value="Terminer" class="btn btn-primary fw-bold text-light " name="">
+			</div>
+				
+	</div>
+
+</form>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "direction/base.html" %}
+{% load i18n admin_modify  %}
+
+{% block message %}
+
+<div class="my-5">
+	<h2> INSCRIPTION ETUDIANT</h2>
+	{% include "direction/progress-bar.html" with progress="67" %}
+
+</div>
+ 
+ {% endblock %}
+
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=2 %}
+<p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+  Inserez les information de l'étudiant
+ </p>
+
+{% if  parent  %}
+<div class="container row  mt-4 ">
+		<div class="col-12  col-lg-8 mt-2">
+			<form method="post" class="form-direction" enctype="multipart/form-data" action="{% url 'direction:ajout_etudiant'%}">
+				{% csrf_token %}
+				{{form.as_p}}
+				<div class=" d-flex justify-content-between mt-5">
+			   {% include "direction/button-retour.html" %}
+			   <input type="submit" value="Terminer" class="btn btn-primary fw-bold text-light " name="">
+			</div>
+				
+			</form>
+		</div> 
+
+	</div>
+
+{% else %}
+  <div class="container border border-primary py-2 px-4">
+  	<h2> Veillez d'abord inscrire le parent de l'étudiant </h2> 
+  	<a href="{% url 'direction:ajout_parent' %}" class="btn btn-primary my-3"> Ajouter le parent de l'étudiant</a>
+    </div>
+{% endif %}
+	
+
+<!--{{form.media}}-->
+{% endblock %}

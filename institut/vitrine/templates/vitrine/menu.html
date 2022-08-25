@@ -1,0 +1,43 @@
+ <div class="d-flex justify-content-center align-items-center ">
+        <div class="container mx-5  mr-3">
+
+
+  <nav class="navbar navbar-expand-lg  ">
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand"></a>
+        <button class="navbar-toggler mr-4 navbar-light " type="button" data-bs-toggle="collapse" data-bs-target="#navbartml" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon "></span>
+        </button>
+        <div class="collapse navbar-collapse bg-light" id="navbartml">
+          <ul class="navbar-nav m-auto text-primary">
+            <li class="nav-item me-3 ">
+              <a class="nav-link {% if page is 1 %} active {% endif %}" aria-current="page" href="{% url 'vitrine:index' %}">Acceuil</a>
+            </li>
+
+
+            <li class="nav-item me-3">
+              <a class="nav-link {% if page is 2 %} active {% endif %}" href="{% url 'vitrine:inscription' %}">Inscription</a>
+            </li>
+
+            <li class="nav-item me-3">
+              <a class="nav-link {% if page is 3 %} active {% endif %}" href="{% url 'vitrine:vie_etudiantine' %}">Vie etudiantine</a>
+            </li>
+            <li class="nav-item me-3">
+              <a class="nav-link {% if page is 4 %} active {% endif %}" href="{% url 'cours:index' %}" tabindex="-1">cours</a>
+             </li>
+             <li class="nav-item me-3">
+               <a class="nav-link {% if page is 5 %} active {% endif %}" href="{% url 'blog:index' %}">Blog</a>
+             </li>
+               <li class="nav-item me-3">
+               <a class="nav-link {% if page is 6 %} active {% endif %}" href="{% url 'vitrine:propos' %}">A propos</a>
+             </li>
+
+            <li class="nav-item me-3">
+              <a class="nav-link {% if page is 7 %} active {% endif %}" href="{% url 'vitrine:contact' %}">contacter</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</div>
+</div>

@@ -1,0 +1,64 @@
+{% extends "direction/base.html" %}
+{% load static %}
+
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+ Lisez les absences des étudiant de  {{specialite.filiere.cycle.nom}}/{{specialite.filiere.nom}}/<span class="fw-bold violet">{{specialite.nom}} {{specialite.niveau}}</span>
+
+ </p>
+
+{% endblock %}
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=9 %}
+
+
+<div class="row">
+  <div class="  row overflow-auto">
+
+   <table class="  table  table-light table-borderless table-hover table-bordered my-4 " id="table-list">
+    <tr>
+      <th class="text-uppercase violet fw-bold"> Photo</th>
+      <th class="text-uppercase violet fw-bold"> Matricule</th>
+      <th class="text-uppercase violet fw-bold"> Noms</th>
+      <th class="text-uppercase violet fw-bold"> Prenoms</th>
+      <th class="text-uppercase violet fw-bold"> Sexe</th>
+      <th class="text-uppercase violet fw-bold">Nombres d'heures</tr>
+
+     {% for etudiant in etudiants %}
+       <tr  class="">
+
+         <td>{{etudiant.photo}}</td>
+         <td>{{etudiant.matricule}}</td>
+         <td>{{etudiant.noms}}</td>
+         <td>{{etudiant.prenoms}}</td>
+         <td>{{etudiant.sexe}}</td>
+         <td>{{etudiant.heures}}</td>
+       </tr>
+
+     {% endfor %}
+
+  </table>
+
+  <div class="text-end row">
+     <div class="col-6">
+      <p></p>
+     </div>
+     <div class="col-6">
+        <p class="fw-bold violet" id="presence"></p>
+     </div>
+
+
+  </div>
+ </div>
+
+
+</div>
+
+
+
+
+<script type="text/javascript" src="{% static 'vitrine/node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}">
+    </script>
+{% endblock %}

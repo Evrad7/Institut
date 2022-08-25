@@ -1,0 +1,65 @@
+{% extends "direction/base.html"  %}
+
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+  Bonjour <span class="text-primary"> Hermine</span>. Section section est reserver à l'édition des
+  étudiant ainsi que de leurs parents respectifs. Elle est spécialement utilsée lors de l'inscription 
+  des nouveaux étudiants
+  </p>
+
+
+{% endblock %}
+
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=4 %}
+<div class="row">
+  <div class="col-12 col-md-6 col-lg-4 my-2">
+    <div class="card border border-primary ">
+     <i class="bi bi-people-fill display-2 mx-auto"></i>
+     <div class="card-body">
+       <h3 class="card-title"> Liste des professeurs</h3>
+       <p class="card-text"> Consulter la liste des professeurs de l'institut</p>
+       <a href="{% url 'direction:liste_professeur' %}" class="stretched-link"></a>
+     </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6 col-lg-4 my-2">
+    <div class="card border border-primary ">
+       <i class="bi bi-person-plus-fill display-3 mx-auto"></i>
+     <div class="card-body">
+       <h3 class="card-title "> Ajouter un professeur</h3>
+       <p class="card-text "> CLiquez ici pour ajouter un professeur</p>
+       <a href="{% url 'direction:ajout_professeur'  %}" class="stretched-link"></a>
+     </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4 my-2 ">
+    <div class="card border border-primary ">
+     <i class="bi bi-people display-2 mx-auto"></i>
+     <div class="card-body">
+       <h3 class="card-title"> Modifier un professeur</h3>
+       <p class="card-text"> Mettez à jour les information d'un professeur</p>
+       <a href="{% url 'direction:recherche_professeur' next_=1 %}" class="stretched-link"></a>
+     </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4 my-2">
+    <div class="card border border-primary ">
+      <i class="bi bi-person-x-fill display-2 mx-auto"></i>
+
+     <div class="card-body">
+       <h3 class="card-title "> supprimer un professeur</h3>
+       <p class="card-text ">Supprimer un professeur de l'établissement</p>
+       <a href="{% url 'direction:recherche_professeur' next_=0 %}" class="stretched-link"></a>
+     </div>
+    </div>
+  </div>
+
+
+  </div>
+
+
+{% endblock %}

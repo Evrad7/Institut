@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'direction/css/direction-index.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/bootstrap-icons.css' %}">
+  </head>
+
+  <body>
+    <div class="container-fluid bg-light">
+
+
+
+      <div class="main active ">
+        <div class=" top d-flex justify-content-between">
+          <div class="menu" style="cursor:pointer;">
+            <i class="bi bi-justify fs-3 "></i>
+          </div>
+          <div class="">
+            <p class="text-uppercase display-5 fw-bold"> Gestion de l'institut TML </p>
+          </div>
+          <div class="">
+            <img src="{% static 'vitrine/images/etudiante2.jpg' %}" class="rounded-circle d-block mx-auto" width="50px" height="50px" alt="">
+            <p class="text-center"> {{user.username}}</p>
+          </div>
+        </div>
+        <div class="container">
+          <div class="">
+
+              {% block message %}
+              {% endblock %}
+
+
+            <button type="button" class="btn my-3" name="button">Regarger l'historique de vos activités</button>
+
+          </div>
+
+          {% block content %}
+          {% endblock %}
+          <div class="">
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+<script type="text/javascript" src="{% static 'direction/js/direction-index.js' %}">
+
+</script>
+  </body>
+</html>

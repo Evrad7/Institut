@@ -1,0 +1,140 @@
+{% extends "direction/base.html" %}
+{% load static %}
+
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+ Gerez les delgues de spécialité
+ </p>
+
+{% endblock %}
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=8 %}
+<div class="my-3 ">
+
+  <form action="{{request.path}}" method="get">
+<div class="  row " >
+  <div class="col-12 col-sm-6 position-relative ">
+      <input type="search" name="search" class="form-control" style="height:40px;" placeholder="Rechercher le nom de spécialité">
+    <button type="submit"  class="btn btn-primary mt-3" id="search" >
+      <i class="bi bi-search text-white"></i> Rechercher
+    </button>
+  </div>
+
+</div>
+
+</form>
+</div>
+<div class="row">
+ <div class=" col-12 col-lg-9 overflow-auto">
+
+  <table class="  table  table-light table-borderless table-hover table-bordered my-4 " id="table-list">
+   <tr>
+     <th class="text-uppercase violet fw-bold" rowspan="2"> Cycle</th>
+     <th class="text-uppercase violet fw-bold" rowspan="2"> Filiere</th>
+     <th class="text-uppercase violet fw-bold" rowspan="2"> Specialite</th>
+     <th class="text-uppercase violet fw-bold text-center" colspan="4"> Delegue</th>
+
+   </tr>
+   <tr>
+     <th class="text-uppercase violet fw-bold" > Photo</th>
+     <th class="text-uppercase violet fw-bold"> Matricule</th>
+     <th class="text-uppercase violet fw-bold"> Noms</th>
+     <th class="text-uppercase violet fw-bold"> Prenoms</th>
+
+   </tr>
+
+    {% for specialite in specialites %}
+      <tr url="{% url 'direction:edition_delegue' pk_specialite=specialite.pk%}" class="item">
+
+        <td>{{specialite.filiere.cycle.nom}}</td>
+        <td>{{specialite.filiere.nom}}</td>
+        <td>{{specialite.nom}} {{specialite.niveau}}</td>
+        <td>{{specialite.delegue.photo}}</td>
+        <td>{{specialite.delegue.matricule}}</td>
+        <td>{{specialite.delegue.noms}}</td>
+        <td>{{specialite.delegue.prenoms}}</td>
+
+
+      </tr>
+
+    {% endfor %}
+
+ </table>
+
+ <div class="text-end row">
+    <div class="col-6">
+     <p></p>
+    </div>
+    <div class="col-6">
+       <p class="fw-bold violet" fs-2>{{specialites.count}} spécialité{{specialites.count|pluralize}}</p>
+    </div>
+
+
+
+ </div>
+</div>
+
+<div class="col-6 col-lg-3 mt-5 mt-lg-1">
+   <h4 class="violet fw-bold">Trier par</h4>
+    <p><a href="{{request.path}}" class="link-primary">supprimer les filtres</a></p>
+<div class="accordion accordion-flush" id="accordionTML">
+
+
+      <div class="accordion-item">
+        <h2 class="accordion-header " id="flush-headingOne">
+          <button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+             Cycle
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse  {% if active_cycle %} show {% endif%} collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionTML">
+          <div class="accordion-body p-0" >
+            <ul>
+              {% for cycle in filtre_cycle %}
+                <li class="my-1 px-0 fs-6  {% if active_cycle is  cycle.pk %} active {% endif%}"> <a class="fs-6 text-center text-decoration-none " href="?cycle={{cycle.pk}}">{{cycle.nom}}</a></li>
+              {% endfor %}
+
+            </ul>
+          </div>
+        </div>
+
+  </div>
+
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        Filière
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse  {% if active_filiere %} show {% endif%} collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionTML">
+      <div class="accordion-body px-0" style="max-height:300px; overflow:auto">
+        <ul>
+
+              {% for filiere in filtre_filiere %}
+                <li class="my-1 px-0 fs-6  {% if active_filiere is  filiere.pk %} active {% endif%}"> <a class=" text-decoration-none " href="?filiere={{filiere.pk}}">{{filiere.nom}}</a>
+
+
+                </li>
+              {% endfor %}
+
+            </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+</div>
+
+
+</div>
+
+
+
+
+<script type="text/javascript" src="{% static 'vitrine/node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}">
+    </script>
+{% endblock %}

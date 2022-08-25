@@ -1,0 +1,347 @@
+
+body{
+  margin:0px;
+  padding:0px;
+  background: rgba(240, 240, 240)
+
+}
+
+
+
+.header-index{
+  background-image:   url("../images/background-header.jpg") ;
+  background-size:  cover;
+  background-position: bottom;
+  height:550px;
+
+}
+.header-propos{
+  background-image:   url("../images/pricing.jpg") ;
+  background-size:cover;
+  background-position: top;
+  height:550px;
+}
+
+.header-inscription{
+  background-image:   url("../images/etudiant.jpg") ;
+  background-size:cover;
+  background-position: top;
+  height:550px;
+}
+.header-blog{
+  background-image: url("../images/met_cantine.jpg");
+  background-size:cover;
+  background-position: top;
+  height:550px;
+}
+
+.header-cours{
+  background-image:   url("../images/etudiant4.jpg") ;
+  background-size:cover;
+  background-position: top;
+  height:550px;
+
+}
+
+.header-contacter{
+  height:550px;
+}
+.header-direction{
+  height: 350px;
+}
+.header-etudiantine{
+  height:550px;
+}
+.header-etudiantine .carousel-item img{
+  height:550px;
+}
+
+footer div div li a:hover{
+  /*border-bottom: 1px solid rgba(23, 23, 255);*/
+}
+@media all and (max-width:576px) {
+  .header-index, .header-inscription, .header-contacter, .header-etudiantine, .header-blog{
+    height: 450px;
+  }
+  .header-etudiantine .carousel-item img {
+    height:450px;
+  }
+}
+
+.header-etudiantine .carousel-item:before{
+  position:absolute;
+  content: "";
+  inset:0;
+  background:linear-gradient(to bottom, rgba(0, 0, 0,.5), rgba(0, 0, 0, .1))
+}
+.logo{
+
+  top:20px;
+  left:0px;
+
+}
+.slogan{
+  top: 100px; left: 75px;
+}
+.header:before{
+  content:"";
+  position:absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .4));
+}
+.slogan div{
+  top:  150px;
+  left: 10%;
+  transition: .5s 0s linear;
+}
+.slogan div:hover{
+  border-color: black;
+}
+@media all and (min-width:992px) {
+.nav-item .nav-link.active{
+  transform: scale(1.2);
+  border-bottom:4px solid  rgba(249, 224, 51);
+}
+.nav-item .nav-link:hover{
+  border-bottom:4px solid  rgba(249, 224, 51);
+
+}
+}
+
+@media  all and (max-width:992px){
+  .nav-item .nav-link.active{
+    border-bottom: 1px solid rgba(249, 224, 51);
+    border-top:1px solid rgba(249, 224, 51);
+
+
+
+  }
+}
+
+.nav-item .nav-link{
+  transition: .5s 0s ease;
+}
+.text-tml{
+  animation: anime-text-tml 1.5s .0s infinite alternate;
+
+
+}
+
+@keyframes anime-text-tml {
+  from{
+    transform:scale(.7);
+  }
+  to{
+    transform:scale(1);
+  }
+}
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0,.1), rgba(255, 255, 255, .1));
+
+}
+.card:hover{
+  transform:scale(1.05);
+}
+.card{
+  transition: .3s 0s ease;
+}
+.tml{
+  opacity: .8;
+}
+.img-tml div:before{
+  content:"";
+  position: absolute;
+  inset:0;
+  background: linear-gradient(to bottom,rgba(0, 0, 0, .8), rgba(0, 0, 0,.1));
+  z-index:10;
+}
+.img-tml p{
+  position:absolute;
+  bottom: 25%;
+  left:25%;
+  z-index:11;
+}
+
+.img-tml div img{
+  transition: .5s 0s ease;
+}
+.img-tml div:hover img{
+  transform:scale(1.1);
+}
+.partenariat:hover{
+  border: 1.5px solid rgba(23, 23, 255);
+}
+
+.point{
+  border: 0px solid white;
+  border-radius: 50%;
+  width:15px;
+  height:15px;
+}
+.point.active{
+  background-color: rgba(255, 74, 255);
+}
+ul{
+  list-style-type: none;
+}
+ul li  a:hover{
+  color:rgba(255, 74, 255);
+}
+footer::before{
+  position:absolute;
+  content:"";
+  inset:0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, .1))
+}
+.typing{
+  position:absolute;
+  top:70%;
+  left:20%;
+  /*height:60px;*/
+  overflow:hidden;
+}
+.typing ul li span:before{
+  content:"";
+  position: absolute;
+  inset:0;
+  background-color:red;
+  opacity:0;
+  border-left: 1px solid white;
+}
+input[type="search"]:focus{
+  box-shadow: 0px 0px 10px white;
+}
+.dropdown button:focus{
+  border:none;
+  box-shadow: 0px 0px white;
+}
+.dropdown-toggle::after{
+  display: none;
+}
+.dropdown i:before{
+  transition:.3s 0s ease;
+
+}
+.dropdown .show i:before{
+  transform:rotate(-.5turn);
+
+}
+.filieres a:hover{
+  border-bottom: 1px solid rgba(255, 74, 255);
+}
+.text-vie-etudiante {
+
+}
+.form-tml{
+  display: flex;
+  flex-direction: column-reverse;
+}
+.form-tml label{
+  transition: .5s;
+  transform: translate(10px, -9px);
+  color:#e131e1;
+  position: absolute;
+  cursor: text;
+  display:none;
+
+
+
+
+}
+.form-tml input{
+  height:40px;
+  border:none;
+  outline:none;
+  padding: 10px;
+  transition: .5s 0s ease;
+  background-color:rgba(250, 250, 250);
+
+
+}
+ .form-tml textarea{
+   outline:none;
+   background-color:rgba(250, 250, 250);
+ }
+.form-tml input:focus, .form-tml textarea:focus{
+  border: 1px solid rgba(255, 74, 255);
+}
+.form-tml input::placeholder{
+  color:#e131e1;
+
+
+}
+
+
+
+.form-tml input:not(:placeholder-shown) ~ label {
+    display: block;
+    /*transform: translateY(-45px);*/
+    animation: "translater-haut" .5s 0s forwards 1;
+
+}
+.form-tml textarea:focus ~ label{
+  animation: "translater-haut" .5s 0s forwards 1;
+   display:block;
+}
+
+@keyframes translater-haut {
+  from{
+  }
+  to{
+    transform:translateY(-45px);
+  }
+}
+#send:hover{
+  color:rgba(255, 74, 255);
+  background-color:rgba(20, 20, 20);
+}
+.menu-cours li.active{
+  font-weight:bold;
+  transform: scale(1.05);
+  color:rgba(255, 74, 255);
+  text-decoration: underline;
+
+}
+.menu-cours li{
+  cursor:default;
+}
+table{
+  cursor:pointer;
+}
+table tr  td:nth-child(1){
+  font-weight:bold;
+}
+.owl-carousel.propos .item div{
+  content:"";
+  position:absolute;
+  inset:0;
+  transition:all .5s 0s;
+  opacity:0;
+
+
+}
+.owl-carousel.propos .item:hover  div{
+  background:#212529;
+  opacity:1;
+}
+.owl-carousel.propos .item div p{
+  transform:translateY(50px);
+}
+
+.hidden-tml{
+  opacity: 0;
+  transform: translateY(100px);
+
+}
+.visible-tml{
+  opacity:1;
+  transform: translateY(0px);
+  transition: all 1s 0s ease;
+}
+
+.search input{
+  cursor:pointer;
+}

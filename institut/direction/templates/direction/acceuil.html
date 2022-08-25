@@ -1,0 +1,25 @@
+{% extends "direction/base.html" %}
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+  Bonjour <span class="text-primary fw-bold">{{user.username}}</span>. Section section est reserver à l'édition des
+  étudiant ainsi que de leurs parents respectifs. Elle est spécialement utilsée lors de l'inscription
+  des nouveaux étudiants
+ </p>
+
+{% endblock %}
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=1 %}
+<div class="">
+  <p class="h2">Ici il s'agit de l'èspace reservé à la gestion de l'établissement TML.
+  </p>
+  <h2>A propos du l'application web</h2>
+    <p> Ce site web est entièrement codé par <span class="fw-bold violet">TML: Tsoata Manfouo Evrad Loïc</span></p>
+</div>
+
+
+
+
+
+{% endblock %}

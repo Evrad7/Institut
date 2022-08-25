@@ -1,0 +1,46 @@
+{% extends "direction/base.html" %}
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+    Details du cv du professeur <span class="fw-bold">{{cv.professeur.noms}} {{cv.professeur.prenoms}}</span>
+ </p>
+
+{% endblock %}
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=4 %}
+
+<div class="">
+   <a href="{% url 'direction:liste_professeur' %}" class="violet"> liste des professeurs</a>
+   <div class="text-center">
+     <img src="{{professeur.url}}">
+   </div>
+
+   <div class="fw-bold fs-3 row">
+   <div class="col-12 col-md-6">
+     <p>
+      <span class="violet"> Nom du diplome:</span> {{cv.nom_diplomes}}
+     </p>
+     <p>
+      <span class="violet"> Année d'obtension du diplome:</span> {{cv.annee_obtension_diplome}} 
+     </p>
+     <p>
+      <span class="violet"> Ecole d'obtension du diplome:</span> {{cv.ecole_obtension_diplome}} 
+     </p>
+   
+     
+   </div>
+
+    <div class="row my-5">
+      <div class="col-12 col-sm-6 text-center">
+        <a href="{% url 'direction:modification_cv' pk=cv.pk %}" class="btn btn-primary "> modifier le cv</a>
+      </div>
+      <div class="col-12 col-sm-6 mt-3 mt-sm-0 text-center" >
+        <a href="{% url 'direction:lire_professeur' pk=cv.professeur.pk %}" class="btn btn-primary"> details  du professeur</a>
+      </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

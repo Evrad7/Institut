@@ -1,0 +1,55 @@
+{% load static %}
+
+<div class="vertical-bar active ">
+
+  <i class="bi bi-justify fs-3 menu-2 text-light " style="cursor:pointer;"></i>
+
+  <ul class="fs-4 fw-bold ">
+
+    <li class=" bg-light d-inline-block p-1 rounded-3 mt-4 d-flex justify-content-between" > <img src="{% static 'vitrine/images/logo-ecole.png' %}" width="60px" height="40" alt=""> </li>
+
+    <li class="mt-4 d-in {% if onglet is 1 %}active{% endif%}"><a href="{% url 'direction:acceuil' %}" class="link-light text-decoration-none py-4 px-2 " ><i class=" bi bi-house-door-fill  me-3"></i> <span class="me-3 d-inline">Acceuil</span> </a> </li>
+
+
+    {% if 'secretaire etudiant' in names_group %}
+    <li class="mt-4 d-in {% if onglet is 2 %}active{% endif%}" ><a href="{% url 'direction:etudiant' %}" class="link-light text-decoration-none py-4 px-2 " ><i class=" bi bi-people-fill  me-3" ></i><span class="me-3">Etudiants</span> </a> </li>
+    {% endif %}
+
+    {% if 'secretaire etudiant' in names_group %}
+    <li class="mt-4 d-in {% if onglet is 3 %}active{% endif%}" ><a href="{% url 'direction:parent' %}" class="link-light text-decoration-none py-4 px-2 " ><i class=" bi bi-person-lines-fill me-3 "></i><span class="me-3">Parents </span>  </a> </li>
+    {% endif %}
+
+    {% if 'secrétaire professeur' in names_group %}
+    <li class="mt-4 d-in {% if onglet is 4 %}active{% endif%}" ><a href="{% url 'direction:professeur' %}" class="link-light text-decoration-none py-4 px-2 " ><i class=" bi bi-person-lines-fill me-3 "></i><span class="me-3">Professeurs </span>  </a> </li>
+    {% endif %}
+
+    {% if 'directeur académique' in names_group %}
+    <li class="mt-4 d-in {% if onglet is 5 %}active{% endif%}" ><a href="{% url 'direction:emploi_de_temps' %}" class="link-light text-decoration-none py-4 px-2 " ><i class=" bi bi-person-lines-fill me-3 "></i><span class="me-3">Emplois de temps </span>  </a> </li>
+    {% endif %}
+    {% if 'professeur' in names_group %}
+    <li class="mt-4 d-in {% if onglet is 6 %}active{% endif%}" ><a href="{% url 'direction:cours' %}" class="link-light text-decoration-none py-4 px-2 " ><i class=" bi bi-text-paragraph me-3 "></i><span class="me-3">Cours </span>  </a> </li>
+    {% endif %}
+    {% if 'professeur' in names_group %}
+    <li class="mt-4 d-in {% if onglet is 7 %}active{% endif%}" ><a href="{% url 'direction:selection_specialite_pour_note' %}" class="link-light text-decoration-none py-4 px-2 " ><i class=" bi bi-text-paragraph me-3 "></i><span class="me-3">Notes</span>  </a> </li>
+    {% endif %}
+
+    {% if '	directeur académique' in names_group %}
+    <li class="mt-4 d-in {% if onglet is 8 %}active{% endif%}" ><a href="{% url 'direction:delegue' %}" class="link-light text-decoration-none py-4 px-2 " ><i class=" bi bi-person-badge me-3 "></i><span class="me-3">Delegues</span>  </a> </li>
+    {% endif %}
+
+    {% if 'professeur' in names_group %}
+    <li class="mt-4 d-in {% if onglet is 9 %}active{% endif%}" ><a href="{% url 'direction:absence_etudiant' %}" class="link-light text-decoration-none py-4 px-2 " ><i class=" bi bi-file-earmark-check-fill me-3 "></i><span class="me-3">Absence étudiant</span>  </a> </li>
+    {% endif %}
+
+    {% if 'etudiant' in names_group %}
+     {% if user.etudiant.specialite.delegue.pk is user.etudiant.pk %}
+    <li class="mt-4 d-in {% if onglet is 10 %}active{% endif%}" ><a href="{% url 'direction:absence_professeur' %}" class="link-light text-decoration-none py-4 px-2 " ><i class=" bi bi-file-earmark-check-fill me-3 "></i><span class="me-3">Absence Prof.</span>  </a> </li>
+    {% endif %}
+   {% endif %}
+
+
+    <li class="mt-4 d-in {% if onglet is 11 %}active{% endif%}" ><a href="{% url 'direction:parametre' %}" class="link-light text-decoration-none py-4 px-2 " ><i class=" bi bi-gear-fill   me-3"></i><span class="me-3 "> paramètre</span> </a> </li>
+
+    <li class="mt-4 d-in {% if onglet is 12 %}active{% endif%}" ><a href="{% url 'direction:quitter' %}" class="link-light text-decoration-none py-4 px-2 " ><i class=" bi bi-backspace  me-3 "></i> <span class="me-3 ">Quitter</span> </a> </li>
+  </ul>
+</div>

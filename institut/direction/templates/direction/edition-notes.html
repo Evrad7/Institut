@@ -1,0 +1,103 @@
+{% extends "direction/base.html"  %}
+{% load static %}
+
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+  Bonjour <span class="fw-bold">{{user.username}}</span>. Attribuez les notes à vos étudiants ici
+  </p>
+
+
+{% endblock %}
+
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=7 %}
+<div class="row">
+  <div class="col-6 ">
+    <p>
+      Spécialité:<span class="fw-bold violet">
+      {{specialite.filiere.cycle.nom}}/{{specialite.filiere.nom}}/{{specialite.nom}}  {{specialite.niveau}}
+     </span>
+    </p>
+  </div>
+  <div class="col-4 d-none d-md-block status" error="{{error}}" id-error="{% for e in id_error%}{{e}}/{% endfor %}">
+
+  </div>
+
+  <div class="col-6 col-md-2 text-end" >
+    <button type="submit" name="button" class="btn btn-primary" id="form">Enregistrer</button>
+  </div>
+</div>
+<div class="col-4 d-md-none status"  error="{{error}}" id-error="{% for e in id_error%}{{e}}-{% endfor %}">
+
+</div>
+
+
+<div class="overflow-auto position-relative">
+  <form class="" action="{{request.get_full_path}}" method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{request.COOKIES.csrftoken}}">
+
+
+  <table class="table table-bordered table-light">
+    <tr>
+      <th colspan="2" class="text-uppercase violet fw-bold"> Etudiants</th>
+      {% for matiere in matieres %}
+      <th colspan="4" class="text-uppercase violet fw-bold">{{matiere.nom}}/credit: {{matiere.credit}}</th>
+      {% endfor %}
+    </tr>
+    <tr>
+      <th  class="text-uppercase violet fw-bold"> Matricule</th>
+      <th   class="text-uppercase violet fw-bold"> Noms et Prenoms</th>
+      {% for matiere in matieres %}
+      <th   class="text-uppercase violet fw-bold">CC1</th>
+      <th  class="text-uppercase violet fw-bold">SN1</th>
+      <th   class="text-uppercase violet fw-bold">CC2</th>
+      <th   class="text-uppercase violet fw-bold">SN2</th>
+      {% endfor %}
+
+
+
+    </tr>
+  {% for etudiant in etudiants %}
+    <tr>
+      <td>{{etudiant.matricule}}</td>
+      <td>{{etudiant.noms}} {{etudiant.prenoms}}</td>
+      {% for matiere in matieres %}
+        {% for note in etudiant.note_set.all %}
+          {% if note.matiere.pk is matiere.pk %}
+      <td><input  style="" type="text" name="cc1-{{matiere.pk}}-{{etudiant.pk}}"  id="cc1-{{matiere.pk}}-{{etudiant.pk}}" class="form-control border-0 notes" value="{% if note.cc1 is not None %}{{note.cc1}}{% endif %}"></td>
+      <td><input  style="" type="text" name="sn1-{{matiere.pk}}-{{etudiant.pk}}"  id="sn1-{{matiere.pk}}-{{etudiant.pk}}" class="form-control border-0 notes" value="{% if note.sn1 is not None %}{{note.sn1}}{% endif %}"></td>
+      <td><input  style="" type="text" name="cc2-{{matiere.pk}}-{{etudiant.pk}}"  id="cc2-{{matiere.pk}}-{{etudiant.pk}}" class="form-control border-0 notes" value="{% if note.cc2 is not None %}{{note.cc2}}{% endif %}"></td>
+      <td><input  style="" type="text" name="sn2-{{matiere.pk}}-{{etudiant.pk}}"  id="sn2-{{matiere.pk}}-{{etudiant.pk}}" class="form-control border-0 notes" value="{% if note.sn2 is not None %}{{note.sn2}}{% endif %}"</td>
+           {% endif %}
+        {% empty %}
+      <td><input  style="" type="text" name="cc1-{{matiere.pk}}-{{etudiant.pk}}" class="form-control border-0 notes" value=""></td>
+     <td><input  style="" type="text" name="sn1-{{matiere.pk}}-{{etudiant.pk}}" class="form-control border-0 notes" value=""></td>
+     <td><input  style="" type="text" name="cc2-{{matiere.pk}}-{{etudiant.pk}}" class="form-control border-0 notes" value=""></td>
+     <td><input  style="" type="text" name="sn2-{{matiere.pk}}-{{etudiant.pk}}" class="form-control border-0 notes" value=""</td>
+
+        {% endfor %}
+      {% endfor %}
+
+    </tr>
+  {% endfor %}
+  </table>
+
+  </form>
+
+
+</div>
+
+
+
+
+<script type="text/javascript" src="{% static 'vitrine/js/jquery-3.6.0.js' %}">
+
+</script>
+<script type="text/javascript" src="{% static 'direction/js/notes.js' %}">
+
+</script>
+<script type="text/javascript" src="{% static 'vitrine/node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}">
+    </script>
+{% endblock %}

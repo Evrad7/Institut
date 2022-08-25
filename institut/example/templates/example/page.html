@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Exemple</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/style.css' %}">
+  </head>
+  <body>
+    <div class="alert alert-primary mt-5">
+      Bienvenue dans l'exemple
+    </div>
+    <div class="ms-5 d-flex">
+      <div class="my-2 justify-content-center align-items-center" style="">
+        <form class="" action="{{request.path}}" method="post" >
+          {% csrf_token %}
+           <div class="row">
+             <div class="">
+               <label for="{{form.nom.id_for_label}}">{{form.nom.label}}:</label>
+               {{form.nom}}
+             </div>
+             <div class="">
+               <label for="{{form.type.id_for_label}}">{{form.type.label}}:</label>
+               {{form.type}}
+               <label for="{{form.taille.id_for_label}}">{{form.taille.label}}:</label>
+               {{form.taille}}
+             </div>
+             <div class="">
+               <label for="{{form.prix.id_for_label}}">{{form.prix.label}}:</label>
+               {{form.prix}}
+             </div>
+
+
+           </div>
+          <input type="submit" name="" value="Enregistrer" class="btn btn-primary mt-2">
+        </form>
+      </div>
+    </div>
+
+    <div class="mt-2 row overflow-auto">
+      <table class="table table-bordered table-light">
+        <tr>
+          <th class="fw-bold">Nom</th>
+          <th class="fw-bold">Type</th>
+          <th class="fw-bold">Taille</th>
+          <th class="fw-bold">Prix</th>
+        </tr>
+        {% for jeu in jeux %}
+        <tr>
+          <td>{{jeu.nom}}</td>
+          <td>{{jeu.type}}</td>
+          <td>{{jeu.taille}}</td>
+          <td>{{jeu.prix}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+  </body>
+</html>

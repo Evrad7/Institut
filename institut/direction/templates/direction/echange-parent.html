@@ -1,0 +1,43 @@
+{% extends "direction/base.html" %}
+
+
+
+
+{% block message %}
+
+<div class="my-5">
+	 <h2 class="fw-bold"> REMPLACEMENT DE PARENT  </h2>
+
+</div>
+ 
+
+{% endblock %}
+
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=3 %}
+
+
+<p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+  Inserez les informatons du nouveau parent de l'étudiant <span class="fw-bold">{{etudiant.noms}} {{etudiant.prenoms}}</span>
+ </p>
+
+
+<div class="container row  mt-4 ">
+	<div class="col-12  col-lg-8 mt-2 mb-5">
+		<form method="post" class="form-direction" enctype="multipart/form-data" action="">
+			{% csrf_token %}
+			{{form.as_p}}
+			<div class=" d-flex justify-content-between mt-5">
+			   {% include "direction/button-retour.html" %}
+			   <input type="submit" value="Remplacer" class="btn btn-primary fw-bold text-light fs-5" name="">
+			</div>
+		</form>
+	</div> 
+
+</div>
+	
+
+
+
+{% endblock %}

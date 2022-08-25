@@ -1,0 +1,273 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta  name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+
+    <title>A propos</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/css_personalise.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/owl.carousel.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/bootstrap-icons.css' %}">
+
+  </head>
+
+  <body>
+    <div class="container bg-white">
+      <div class="bg-dark header-propos header position-relative" >
+        <div class="container position-relative">
+          <div class="logo postition-abolute">
+            <img src="{% static 'vitrine/images/logo-ecole.png' %}" alt="" width="200px" height="100px">
+          </div>
+          <div class="display-3  text-white position-absolute text-uppercase fw-bold slogan">
+                <p style="transform:translateX(-60px)"> Decouvres l'école TML<br> <br> <br>
+
+               <span class="text-danger">La meilleure université d'Afrique </span> </p>
+
+          </div>
+
+
+        </div>
+      </div>
+
+        {% include "vitrine/menu.html" with page=6 %}
+
+        <div class="row mt-5 justify-content-center">
+          <div class="col-12 col-sm-4 col-md-3 border-bottom border-primary border-3 mx-5 mx-sm-2 p-5 p-sm-0 text-center">
+            <div class="">
+              <i class="bi bi-person-fill display-3 text-primary"></i>
+            </div>
+            <div class="text-center">
+              <h2 class="text-warning">La qualité</h2>
+              <p>L'ecole TML donne accès à une qualité élevée d'éducation rien à envier aux
+              grandes écoles du monde entier</p>
+            </div>
+
+          </div>
+
+          <div class="col-12 col-sm-4 col-md-3 text-center border-bottom border-primary border-3 mx-5 mx-sm-2 p-5 p-sm-0">
+            <div class="">
+              <i class="bi bi-person-fill display-3 text-primary"></i>
+            </div>
+            <div class="text-center">
+              <h2 class="text-warning">La qualité</h2>
+              <p>L'ecole TML donne accès à une qualité élevée d'éducation rien à envier aux
+              grandes écoles du monde entier</p>
+            </div>
+
+          </div>
+
+          <div class="col-12 col-sm-4 col-md-3 border-bottom border-primary border-3 mx-5 mx-sm-2 p-5 p-sm-0 text-center">
+            <div class="">
+              <i class="bi bi-person-fill display-3 text-primary"></i>
+            </div>
+            <div class="text-center">
+              <h2 class="text-warning">La qualité</h2>
+              <p>L'ecole TML donne accès à une qualité élevée d'éducation rien à envier aux
+              grandes écoles du monde entier</p>
+            </div>
+
+          </div>
+
+
+          </div>
+          <div class="row bg-light mt-5">
+            <!--<h2 class="text-capitalize display-4 fw-bold ">l'école TML</h2>-->
+            <p class="p-5 fs-6 text-center"> Nous somme une école créee depuis l'an 2030 et nous somme le leader de
+               l'éducation en Afrique centrale. L'entrée se fait sur étude de dossier et de nombreuses écoles extérieures nous demandent chaque années des bourses pour prostuler dans cette
+              prestigieuse école. Nous comptons former des génies qui expérons le sauront
+              relever l'Afrique.
+              Nous somme une école créee depuis l'an 2030 et nous somme le leader
+              de l'éducation en Afrique centrale. L'entrée se fait sur étude de dossier
+              et de nombreuses écoles extérieures nous demandent chaque années des bourses
+              pour prostuler dans cette prestigieuse école. Nous comptons former des
+               génies qui expérons le sauront relever l'Afrique.
+               Nous somme une école créee depuis l'an 2030 et nous somme le leader de
+                  l'éducation en Afrique centrale. L'entrée se fait sur étude de dossier et de nombreuses écoles extérieures nous demandent chaque années des bourses pour prostuler dans cette
+                 prestigieuse école. Nous comptons former des génies qui expérons le sauront
+                 relever l'Afrique.
+                 Nous somme une école créee depuis l'an 2030 et nous somme le leader
+                 de l'éducation en Afrique centrale. L'entrée se fait sur étude de dossier
+                 et de nombreuses écoles extérieures nous demandent chaque années des bourses
+                 pour prostuler dans cette prestigieuse école. Nous comptons former des
+                  génies qui expérons le sauront relever l'Afrique. </p>
+          </div>
+
+
+         <div class="container">
+           <h2 class="text-capitalize display-4 fw-bold text-dark ">Evolution</h2>
+           <div class="owl-carousel propos owl-theme">
+
+               <div class="item position-relative">
+                 <div class="">
+                   <p class="text-center fw-bold text-danger fs-3">L'école fut créee en 2030 à Yaoundé Cameroun</p>
+                 </div>
+                 <img src="{% static 'vitrine/images/carousel/beach.jpg' %}" class="border border-danger" alt="" width="200px" height="250px">
+               </div>
+
+
+               <div class="item position-relative">
+                 <div class="">
+                   <p class="text-center fw-bold text-danger fs-3">L'école fut créee en 2030 à Yaoundé Cameroun</p>
+                 </div>
+                 <img src="{% static 'vitrine/images/carousel/cafe.jpg' %}" class="border border-danger" alt="" width="200px" height="250px">
+               </div>
+
+
+
+             <div class="item position-relative">
+               <div class="">
+                 <p class="text-center fw-bold text-danger fs-3">L'école fut créee en 2030 à Yaoundé Cameroun</p>
+               </div>
+               <img src="{% static 'vitrine/images/carousel/contact.jpg' %}" class="border border-danger" alt="" width="200px" height="250px">
+             </div>
+             <div class="item position-relative">
+               <div class="">
+                 <p class="text-center fw-bold text-danger fs-3">L'école fut créee en 2030 à Yaoundé Cameroun</p>
+               </div>
+               <img src="{% static 'vitrine/images/carousel/gym.jpg' %}" class="border border-danger" alt="" width="200px" height="250px">
+             </div>
+             <div class="item position-relative">
+               <div class="">
+                 <p class="text-center fw-bold text-danger fs-3">L'école fut créee en 2030 à Yaoundé Cameroun</p>
+               </div>
+               <img src="{% static 'vitrine/images/carousel/hero-v1.jpg' %}" class="border border-danger" alt="" width="200px" height="250px">
+             </div>
+             <div class="item position-relative">
+               <div class="">
+                 <p class="text-center fw-bold text-danger fs-3">L'école fut créee en 2030 à Yaoundé Cameroun</p>
+               </div>
+               <img src="{% static 'vitrine/images/carousel/hotel.jpg' %}" class="border border-danger" alt="" width="200px" height="250px">
+             </div>
+             <div class="item position-relative">
+               <div class="">
+                 <p class="text-center fw-bold text-danger fs-3">L'école fut créee en 2030 à Yaoundé Cameroun</p>
+               </div>
+               <img src="{% static 'vitrine/images/carousel/promo.jpg' %}" class="border border-danger" alt="" width="200px" height="250px">
+             </div>
+             <div class="item position-relative">
+               <div class="">
+                 <p class="text-center fw-bold text-danger fs-3">L'école fut créee en 2030 à Yaoundé Cameroun</p>
+               </div>
+               <img src="{% static 'vitrine/images/carousel/restaurante.jpg' %}" class="border border-danger" alt="" width="200px" height="250px">
+             </div>
+
+           </div>
+         </div>
+         <hr>
+         <div class="row container my-5">
+           <div class="col-12 col-md-7 d-block d-md-none m-auto mb-3 ">
+             <img src="{% static 'vitrine/images/lab-3.jpg' %}" alt="" class="d-block border border-primary border-3 h-100 img-fluid ">
+           </div>
+        <div class="col-12 col-md-5 bg-light">
+          <h1 class="fw-bold text-dark">Des enseignants de qualité venus du monde entier</h1>
+          <p>
+              Les différents règlements intérieurs ont intégré la lutte contre la drogue,
+                la violence sous toutes les formes et les hystéries collectives dans les enceintes scolaires.
+                - Les cas de violence avérés ont été traduits
+                en conseil de discipline et sanctionné es conformément aux dispositions des règlements intérieurs
+                 des établissements concernés. Toutefois l’exploitation des rapports de conseil de discipline
+                  nous a obligés d’apport er des corrections à certaines décisions de conseil de discipline
+                   qui étaient de nature à enven imer l’atmosphère dans la communauté éducative
+
+              </p>
+            </div>
+
+            <div class="col-12 col-md-7 d-none d-md-block ">
+              <img src="{%  static 'vitrine/images/lab-3.jpg' %}" alt="" class="d-block  border border-primary border-3  h-100  img-fluid">
+            </div>
+         </div>
+
+         <div class="row container mt-5">
+           <div class="col-12 col-md-7 d-block  m-auto mb-3 ">
+             <div class="row">
+               <div class="col-6 my-2 ">
+                 <img src="{%  static 'vitrine/images/lab-1.jpg' %} " alt="" class="d-block border border-primary border-3 w-100 img-fluid ">
+               </div>
+               <div class="col-6 my-2">
+                 <img src="{%  static 'vitrine/images/lab-1.jpg' %}" alt="" class="d-block border border-primary border-3 w-100 img-fluid ">
+               </div>
+               <div class="col-6 my-2">
+                 <img src="{%  static 'vitrine/images/lab-1.jpg' %}" alt="" class="d-block border border-primary border-3 w-100 img-fluid ">
+               </div>
+               <div class="col-6 my-2">
+                 <img src="{%  static 'vitrine/images/lab-1.jpg' %}" alt="" class="d-block border border-primary border-3 w-100 img-fluid ">
+               </div>
+             </div>
+           </div>
+        <div class="col-12 col-md-5 bg-light">
+          <h1 class="fw-bold text-dark">Des laboratoires outillés</h1>
+          <p>
+              Les différents règlements intérieurs ont intégré la lutte contre la drogue,
+                la violence sous toutes les formes et les hystéries collectives dans les enceintes scolaires.
+                - Les cas de violence avérés ont été traduits
+                en conseil de discipline et sanctionné es conformément aux dispositions des règlements intérieurs
+                 des établissements concernés. Toutefois l’exploitation des rapports de conseil de discipline
+                  nous a obligés d’apport er des corrections à certaines décisions de conseil de discipline
+                   qui étaient de nature à enven imer l’atmosphère dans la communauté éducative
+
+              </p>
+            </div>
+
+         </div>
+         <div class="row justify-content-center bg-secondary text-light mt-5">
+           <div class="col-0 col-md-3">
+
+           </div>
+           <div class="col-12 col-md-6 m-auto">
+               <h2 class="text-center fw-bold">Plus de 50 clubs et un cadre etudiantin serain</h2>
+               <p class="text-center">Les différents règlements intérieurs ont intégré la lutte contre la drogue,
+                 la violence sous toutes les formes et les hystéries collectives dans les enceintes scolaires.
+                 - Les cas de violence avérés ont été traduits
+                 en conseil de discipline et sanctionné es conformément aux dispositions des règlements intérieurs
+                  des établissements concernés. Toutefois l’exploitation des rapports de conseil de discipline
+                   nous a obligés.  <a href="vie_etudiantine.html" class="link-primary">Cliquez ici </a> pour plus d'informations
+                 </p>
+           </div>
+           <div class="col-0 col-md-3">
+
+           </div>
+         </div>
+
+         <div class="container mt-5 mb-5">
+           <p class="display-3   tml fw-bold ">Partenaires</p>
+           <div class=" row bg-light ">
+             {% for partenaire in partenaires %}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-5 ">
+               <div class="partenariat">
+                 <h3 class="text-center fw-bold">{{partenaire.nom}}</h3>
+                 <p class="text-center">{{partenaire.description}}
+                 </p>
+               </div>
+            </div>
+            {% endfor %}
+           </div>
+
+         </div>
+
+          {% include "vitrine/footer.html" %}
+
+          </div>
+
+
+
+
+    </script>
+   <script type="text/javascript" src="{% static 'vitrine/js/jquery-3.6.0.js' %}">
+
+    </script>
+    <script type="text/javascript" src="{% static 'vitrine/js/owl.carousel.min.js' %}">
+    </script>
+     <script type="text/javascript" src="{% static 'vitrine/js/personnel_propos.js' %}">
+    </script>
+    <script type="text/javascript" src="{% static 'vitrine/js/intersection-observer.js' %}">
+
+    </script>
+    <script type="text/javascript" src="{% static 'vitrine/node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}">
+    </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,167 @@
+{% extends "direction/base.html"  %}
+{% load static %}
+
+
+{% block message %}
+<link rel="stylesheet" type="text/css" href="{% static 'direction/css/emploi-de-temps.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/owl.theme.default.css' %}">
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+  Bonjour <span class="fw-bold">{{user.username}}</span>. Cette section est reservée  à la confection des emploi de temps des étudiants et par la même occasion à l'emploi de temps des professeurs.
+  </p>
+
+
+{% endblock %}
+
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=5 %}
+<div class="mt-2 mb-4 fw-bold">
+  <p class="fs-4 text-dark"> Regarder l'emploi de temps du professeur <span class="fw-bold violet"> {{professeur.noms}} {{professeur.prenoms}} </span> </p>
+</div>
+
+<div class="my-3">
+
+<div><p class="status">emploi de temps</p>
+ <p class="display-4">{% for e in form.errors.values %}
+                            {{e}}
+                      {% endfor %}
+                      </p></div>
+  <div class=" position-relative">
+  <div class="row position-relative">
+  <div class=" col overflow-auto">
+    <table class="table table-light table-bordered " >
+      <tr>
+        <th class="text-uppercase violet fw-bold" style="width:10px">Periode</th>
+        <th class="text-uppercase violet fw-bold" style="width:10px">Heures</th>
+        <th class="text-uppercase violet fw-bold">Lundi</th>
+        <th class="text-uppercase violet fw-bold">Mardi</th>
+        <th class="text-uppercase violet fw-bold">Mercredi</th>
+        <th class="text-uppercase violet fw-bold">Jeudi</th>
+        <th class="text-uppercase violet fw-bold">Vendredi</th>
+        <th class="text-uppercase violet fw-bold">Samedi</th>
+      </tr>
+
+      {% for periode in emploi_de_temps %}
+      <tr >
+        <td class="">{{periode.periode}}</td>
+        <td class="">{{periode.heure}}</td>
+       
+
+        <td> <div class="p-0 text-center  text-dark"><p class="fw-bold  "> {% if periode.jour_1.credit is not None %}         <span>Cycle: {{periode.jour_1.specialite.filiere.cycle.nom}}
+                   </span><br>
+                   <span>Filière: {{periode.jour_1.specialite.filiere.nom}}</span><br>
+                  <span> Spécialité: {{periode.jour_1.specialite.nom}} {{periode.jour_1.specialite.niveau}}</span><br>
+                  <span >Matiere: {{periode.jour_1.nom_matiere}}</span><br>
+                  <span>Credit: {{periode.jour_1.credit}}</span><br>
+                  <span>salle: {{periode.jour_1.specialite.numero_salle}}
+                   
+                   </span>
+
+
+                  {% endif %}
+                  </p></div>
+        </td>
+        <td>
+          <div class="p-0 text-center  text-dark"><p class="fw-bold  "> {% if periode.jour_2.credit is not None %}         <span>Cycle: {{periode.jour_2.specialite.filiere.cycle.nom}}
+                   </span><br>
+                   <span>Filière: {{periode.jour_2.specialite.filiere.nom}}</span><br>
+                  <span> Spécialité: {{periode.jour_2.specialite.nom}} {{periode.jour_2.specialite.niveau}}</span><br>
+                  <span >Matiere: {{periode.jour_2.nom_matiere}}</span><br>
+                  <span>Credit: {{periode.jour_2.credit}}</span><br>
+                  <span>salle: {{periode.jour_2.specialite.numero_salle}}
+                   
+                   </span>
+
+
+                  {% endif %}
+                  </p></div>
+        </td>
+        <td>
+          <div class="p-0 text-center  text-dark"><p class="fw-bold  "> {% if periode.jour_3.credit is not None %}         <span>Cycle: {{periode.jour_3.specialite.filiere.cycle.nom}}
+                   </span><br>
+                   <span>Filière: {{periode.jour_3.specialite.filiere.nom}}</span><br>
+                  <span> Spécialité: {{periode.jour_3.specialite.nom}} {{periode.jour_3.specialite.niveau}}</span><br>
+                  <span >Matiere: {{periode.jour_3.nom_matiere}}</span><br>
+                  <span>Credit: {{periode.jour_3.credit}}</span><br>
+                  <span>salle: {{periode.jour_3.specialite.numero_salle}}
+                   
+                   </span>
+
+
+                  {% endif %}
+                  </p></div>
+        </td>
+        <td>
+          <div class="p-0 text-center  text-dark"><p class="fw-bold  "> {% if periode.jour_4.credit is not None %}         <span>Cycle: {{periode.jour_4.specialite.filiere.cycle.nom}}
+                   </span><br>
+                   <span>Filière: {{periode.jour_4.specialite.filiere.nom}}</span><br>
+                  <span> Spécialité: {{periode.jour_4.specialite.nom}} {{periode.jour_4.specialite.niveau}}</span><br>
+                  <span >Matiere: {{periode.jour_4.nom_matiere}}</span><br>
+                  <span>Credit: {{periode.jour_4.credit}}</span><br>
+                  <span>salle: {{periode.jour_4.specialite.numero_salle}}
+                   
+                   </span>
+
+
+                  {% endif %}
+                  </p></div>
+        </td>
+        <td>
+          <div class="p-0 text-center  text-dark"><p class="fw-bold  "> {% if periode.jour_5.credit is not None %}         <span>Cycle: {{periode.jour_5.specialite.filiere.cycle.nom}}
+                   </span><br>
+                   <span>Filière: {{periode.jour_5.specialite.filiere.nom}}</span><br>
+                  <span> Spécialité: {{periode.jour_5.specialite.nom}} {{periode.jour_5.specialite.niveau}}</span><br>
+                  <span >Matiere: {{periode.jour_5.nom_matiere}}</span><br>
+                  <span>Credit: {{periode.jour_5.credit}}</span><br>
+                  <span>salle: {{periode.jour_5.specialite.numero_salle}}
+                   
+                   </span>
+
+
+                  {% endif %}
+                  </p></div>
+        </td>
+        <td>
+         <div class="p-0 text-center  text-dark"><p class="fw-bold  "> {% if periode.jour_6.credit is not None %}         <span>Cycle: {{periode.jour_6.specialite.filiere.cycle.nom}}
+                   </span><br>
+                   <span>Filière: {{periode.jour_6.specialite.filiere.nom}}</span><br>
+                  <span> Spécialité: {{periode.jour_6.specialite.nom}} {{periode.jour_6.specialite.niveau}}</span><br>
+                  <span >Matiere: {{periode.jour_6.nom_matiere}}</span><br>
+                  <span>Credit: {{periode.jour_6.credit}}</span><br>
+                  <span>salle: {{periode.jour_6.specialite.numero_salle}}
+                   
+                   </span>
+
+
+                  {% endif %}
+                  </p></div>
+        </td>
+
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+ 
+  </div>
+
+  
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="{% static 'vitrine/js/jquery-3.6.0.js' %}">
+ </script>
+ <script type="text/javascript" src="{% static 'vitrine/js/owl.carousel.min.js' %}">
+ </script>
+<!--<script type="text/javascript" src="{% static 'direction/js/emploi_de_temps.js'%}"></script>-->
+<script type="text/javascript" src="{% static 'vitrine/node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}">
+    </script>
+{% endblock %}

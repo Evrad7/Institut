@@ -1,0 +1,44 @@
+{% extends "direction/base.html" %}
+
+
+
+
+{% block message %}
+
+<div class="my-5">
+	 <h2> INSCRIPTION ETUDIANT</h2>
+	{% include "direction/progress-bar.html" with progress="5" %}
+
+</div>
+ 
+
+{% endblock %}
+
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=2 %}
+
+<p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+  Fêtes le choix
+ </p>
+<div class="mt-5 border border-primary py-2 px-4">
+	<h2> L'étudiant est <span class="violet">ancien</span> ou <span class="violet">nouveau</span></h2>
+	<div class="row  mt-5">
+	
+		<div class="col-6 col-sm-4">
+			<a href="{% url 'direction:inscription' old=1 %}?prev={{request.path}}" class="btn btn-primary">Ancien étudiant</a>
+		</div>
+		<div class="col-6 col-sm-4">
+			<a href="{% url 'direction:inscription' old=0 %}?prev={{request.path}}" class="btn btn-primary">Nouveau étudiant</a>
+		</div>
+	</div>
+</div>
+<div class="mt-5">
+	{% include "direction/button-retour.html" %}
+	
+</div>
+
+
+
+
+{% endblock %}

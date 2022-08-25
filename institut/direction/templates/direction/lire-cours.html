@@ -1,0 +1,52 @@
+{% extends "direction/base.html" %}
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+   Lecture du Cours
+ </p>
+
+{% endblock %}
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=6 %}
+
+<div class="">
+  <div class="my-4">
+    <a href="{% url 'direction:liste_cours' %}" class="btn btn-primary">Liste des cours</a>
+  </div>
+   <p>
+     Spécialités:<span class="fw-bold violet">{% for specialite in cours.specialite_set.all %}
+     {{specialite.filiere.cycle.nom}}/{{specialite.filiere.nom}}/{{specialite.nom}}  {{specialite.niveau}}
+    {% endfor %}</span>
+   </p>
+   <p>
+    <span class="violet"> Titre:</span> {{cours.titre}}
+   </p>
+   <p>
+    <span class="violet"> Discipline:</span> {{cours.discipline}}
+   </p>
+   <p>
+    <span class="violet"> Auteur:</span> {{cours.auteur}}
+   </p>
+   <p>
+    <span class="violet"> Description:</span> {{cours.description}}
+   </p>
+   <p>
+    <span class="violet"> Duree:</span> {{cours.duree}} h
+   </p>
+   <p class="mt-4">
+    <span class="violet"> -----------:</span> --------
+   </p>
+</div>
+<div class="row my-1">
+  <div class="col-12 col-sm-6 ">
+    <a href="{% url 'direction:modification_cours' pk=cours.pk %}" class="btn btn-primary "> modifier le cours</a>
+  </div>
+  <div class="col-12 col-sm-6 mt-3 mt-sm-0 " >
+    <a href="{% url 'direction:suppression_cours' pk=cours.pk %}" class="btn btn-primary"> supprimer le cours </a>
+  </div>
+</div>
+
+
+
+{% endblock %}

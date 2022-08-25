@@ -1,0 +1,52 @@
+{%  extends "direction/base.html" %}
+
+{% block content %}
+
+{% include "direction/vertical-bar.html" with onglet=3 %}
+<div class="row">
+  <div class="col-12 col-md-6 col-lg-4 my-2">
+    <div class="card border border-primary ">
+     <i class="bi bi-people-fill display-2 mx-auto"></i>
+     <div class="card-body">
+       <h3 class="card-title"> Liste des parents</h3>
+       <p class="card-text"> Consulter la liste des parents d'étudiants de l'institut</p>
+       <a href="{% url 'direction:liste_parent' %}" class="stretched-link"></a>
+     </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6 col-lg-4 my-2">
+    <div class="card border border-primary ">
+       <i class="bi bi-person-plus-fill display-3 mx-auto"></i>
+     <div class="card-body">
+       <h3 class="card-title "> Ajouter un parent</h3>
+       <p class="card-text "> CLiquez ici pour ajouter un parent d'étudiant</p>
+       <a href="{% url 'direction:insertion_parent' 0 %}" class="stretched-link"></a>
+     </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4 my-2 ">
+    <div class="card border border-primary ">
+     <i class="bi bi-people display-2 mx-auto"></i>
+     <div class="card-body">
+       <h3 class="card-title"> Modifier un parent</h3>
+       <p class="card-text"> Mettez à jour les information d'un parent d'étudiant</p>
+       <a href="{% url 'direction:recherche_parent' %}" class="stretched-link"></a>
+     </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4 my-2">
+    <div class="card border border-primary ">
+      <i class="bi bi-person-x-fill display-2 mx-auto"></i>
+
+     <div class="card-body">
+       <h3 class="card-title "> supprimer un parent</h3>
+       <p class="card-text "> Suprimer des parents des etudiants de l'institut</p>
+       <a href="{% url 'direction:suppression_parent' %}" class="stretched-link"></a>
+     </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}

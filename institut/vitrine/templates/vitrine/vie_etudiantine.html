@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta  name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <title>Vie etudiantine</title>
+   <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/css_personalise.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/bootstrap-icons.css' %}">
+
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header-etudiantine position-relative">
+        <div class="carousel slide" data-bs-ride="carousel" id="carouselTML">
+          <div class="carousel-inner">
+            <div class="carousel-item active position-relative">
+              <img src="{% static 'vitrine/images/bus-3.jpg' %}" alt="bus"   width="" class="w-100 d-block">
+              <div class="carousel-caption text-warning text-center">
+                <p class="display-5 fw-bold"> Une cité universitaire ammenagées</p>
+              </div>
+            </div>
+            <div class="carousel-item  position-relative">
+              <img src="{% static 'vitrine/images/bus-2.jpg' %}" alt="bus"   width="" class="w-100 d-block">
+              <div class="carousel-caption text-warning text-center">
+                <p class="display-5 fw-bold"> Une cité universitaire ammenagées</p>
+              </div>
+            </div>
+            <div class="carousel-item  position-relative">
+              <img src="{% static 'vitrine/images/lab-2.jpg' %}" alt="bus"   width="" class="w-100 d-block">
+              <div class="carousel-caption text-warning text-center">
+                <p class="display-5 fw-bold"> Des bus amménagés pour le transport</p>
+              </div>
+            </div>
+            <div class="carousel-item  position-relative">
+              <img src="{% static 'vitrine/images/lab-4.jpg' %}" alt="bus"   width="" class="w-100 d-block">
+              <div class="carousel-caption text-warning ">
+                <p class="display-5 fw-bold text-center"> Une cité universitaire ammenagées</p>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="carousel-control-prev "  data-bs-target="#carouselTML" data-bs-slide="prev">
+          <!--<span class="carousel-control-prev-icon" aria-hidden="true" ></span>-->
+          <i class="bi bi-chevron-left display-md-3 display-5"></i>
+          <span class="d-none d-md-block"> Precédent</span>
+         </button>
+         <button type="button" class="carousel-control-next"  data-bs-target="#carouselTML" data-bs-slide="next">
+         <!--<span class="carousel-control-next-icon" aria-hidden="true" ></span>-->
+         <i class="bi bi-chevron-right display-5 display-md-3 text-white"></i>
+         <span class="d-none d-md-block"> Suivant</span>
+        </button>
+        </div>
+      <div class="text-white position-absolute text-uppercase " style="top:15%; left:10%;">
+        <p class="display-4 fw-bold">Nous Facilitons la vie de nos étudiants</p>
+      </div>
+    </div>
+
+
+
+      {% include "vitrine/menu.html" with page=3 %}
+
+      <div class="mt-4">
+        <h2 class="text-center display-4 text-primary fw-bold">Decouvez comment vivent nos étudiants</h2>
+        <div class="row mt-5">
+          <div class="col-12 col-sm-6 d-block d-sm-none">
+            <img src="{% static 'vitrine/images/lab-5.jpg' %}" alt="logement_ECOLE_TML" class="img-fluid rounded-circle border-warning border">
+          </div>
+          <div class="col-12 col-sm-6 text-vie-etudiante">
+            <h4 class="text-center text-dark display-5 fw-bold"> Une cité universitaire amménagée</h4>
+            <p class="text-center"> Nous disposons d'une sité de plus de <strong> 50 chambres </strong> amménagés ultra
+              modernenes avec doucheet cuisine.
+              Elles sont protégés par un gardien qui veille à la sécurité de jour comme
+               de nuit. cliquez  <a href="#">ici</a> pour les modalités d'accès et pour les reservations </p>
+          </div>
+          <div class="col-12 col-sm-6 d-none d-sm-block">
+            <img src="{% static 'vitrine/images/lab-5.jpg' %}" alt="logement_ECOLE_TML" class="img-fluid rounded-circle border-warning border">
+          </div>
+
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 col-sm-6">
+            <img src="{% static 'vitrine/images/met_canti' %}ne.jpg" alt="met_ECOLE_TML" class="img-fluid rounded-circle  border-warning border">
+          </div>
+
+          <div class="col-12 col-sm-6 text-vie-etudiante">
+            <h4 class="text-center text-dark display-5 fw-bold"> Un restaurant universitaire</h4>
+            <p class="text-center"> Nous disposons d'un grand resptorant propre et des cusiniers chefs
+              ayant récu les diplômes d'ingenieurs et de techniciens dans l'art culinnaire.
+              Le droit à la cantine se fait sur abonnement. Cliquez   <a href="#">ici</a> pour les modalités d'accès et pour les reservations </p>
+          </div>
+
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 col-sm-6 d-block d-sm-none">
+            <img src="{% static 'vitrine/images/lab-3.jpg' %}" alt="clubs_universitaires_ECOLE_TML" class="img-fluid rounded-circle  border-warning border">
+          </div>
+
+          <div class="col-12 col-sm-6 text-vie-etudiante">
+            <h4 class="text-center text-dark display-5 fw-bold"> plus de 50 clubs universitaires</h4>
+            <p class="text-center">Nous disposons de nombreux club pour l'épanouissement extra-scolaire
+              des étudiants. L'école dispose du Club musique , club Gym, club science, club cuisine
+              club, dance..... cliquez  <a href="#">ici</a> pour plus d'informations et les modalités de participation</p>
+          </div>
+          <div class="col-12 col-sm-6 d-none d-sm-block">
+            <img src="{% static 'vitrine/images/lab-3.jpg' %}" alt="clubs_universitaires_ECOLE_TML" class="img-fluid rounded-circle  border-warning border">
+          </div>
+
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 col-sm-6">
+            <img src="{% static 'vitrine/images/lab-2.jpg' %}" alt="competition_ECOLE_TML" class="img-fluid rounded-circle  border-warning border">
+          </div>
+
+          <div class="col-12 col-sm-6 text-vie-etudiante">
+            <h4 class="text-center text-dark display-5 fw-bold">Plus de 10 compétitions chaque années</h4>
+            <p class="text-center"> Pous entretenir l'esprit compétitif de nos étudiants, nous organisons
+              chaque année plus de 10 compétitions dans differents domaines ou les gagnants
+               sont grandement recompenseé cliquez  <a href="#">ici</a> pour plus d'informations </p>
+          </div>
+
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 col-sm-6 d-block d-sm-none">
+            <img src="{% static 'vitrine/images/met_cantine.jpg' %}" alt="met_ECOLE_TML" class="img-fluid rounded-circle">
+          </div>
+          <div class="col-12 col-sm-6 text-vie-etudiante">
+            <h4 class="text-center text-dark display-5 fw-bold"> Une cité universitaire amménagée</h4>
+            <p class="text-center"> Nous disposons d'une sité de plus de <strong> 50 chambres </strong> amménagés ultra
+              modernenes avec doucheet cuisine.
+              Elles sont protégés par un gardien qui veille à la sécurité de jour comme
+               de nuit. cliquez  <a href="#">ici</a> pour les modalités d'accès et pour les reservations </p>
+          </div>
+          <div class="col-12 col-sm-6 d-none d-sm-block">
+            <img src="{% static 'vitrine/images/met_cantine.jpg' %}" alt="met_ECOLE_TML" class="img-fluid rounded-circle">
+          </div>
+
+        </div>
+        </div>
+      </div>
+      <hr>
+      <div class="container  bg-light">
+        <p class="fw-1 text-dark  text-center tml fw-bold ">derniers nouvelles</p>
+        <div class="row">
+         <div class="col-12 col-md-8">
+            <img src="{% static 'vitrine/images/bus-3.jpg' %}" alt="bus-Ecole-tml" class="img-fluid border border-primary">
+            <p class="display-4 fw-bold  tml-title-article text-dark"> Un nouveau bus à l'université</p>
+            <p class="text-justify">
+              -	Les différents règlements intérieurs ont intégré la lutte contre la drogue, la
+              violence sous toutes les formes et les hystéries collectives dans les enceintes scolaires.
+             -	Les  cas de violence avérés ont été traduits en conseil de discipline et sanctionné
+             es conformément aux dispositions des règlements intérieurs des établissements concernés.
+             Toutefois l’exploitation des rapports de conseil de discipline nous a obligés d’apport
+             er des corrections à certaines décisions de conseil de discipline qui étaient de nature à enven
+             imer l’atmosphère dans la communauté éducative (Lycée Technique Bangang)
+             -	Existence dans les structures des messages éducatifs sensibilisant contre la drogue et la violence.
+             -	Nous avons fait large diffusion de la correspondance N°21/15/LC/MINESEC/IGS du 21/12/2015 r
+             elative aux déviances pendant les manifestations de la semaine de la jeunesse......<a href="#" class="link-primary">Lire plus</a>
+
+
+            </p>
+         </div>
+         <div class="col-12 col-md-4">
+           <div class="row">
+           <div class="col-6 col-md-12">
+             <img src="{% static 'vitrine/images/bus.jpg' %}" alt="bus-Ecole-tml" class="img-fluid  border border-primary" >
+             <p class="fs-3 fw-bold  tml text-primary ">Derniere incursion</p>
+             <p class="text-justify">
+               -	Les différents règlements intérieurs ont intégré la lutte contre la drogue, laSEC/IGS du 21/12/2015 r
+              elative aux déviances pendant les manifestations de la semaine de la jeunesse......<a href="#" class="link-primary">Lire plus</a>
+           </div>
+
+           <div class="col-6 col-md-12">
+             <img src="{% static 'vitrine/images/bus.jpg' %}" alt="bus-Ecole-tml " class="img-fluid border border-primary" >
+             <p class="fs-3 fw-bold  tml text-primary">Derniere incursion</p>
+             <p class="text-justify">
+               -	Les différents règlements intérieurs ont intégré la lutte contre la drogue, la
+               violence sous toutes les formes et les hystéries collectives dans les enceintes scolaires.
+              jeunesse......<a href="#" class="link-primary">Lire plus</a>
+           </div>
+         </div>
+       </div>
+
+        </div>
+
+      </div>
+
+          {% include "vitrine/footer.html" %}
+          </div>
+
+
+
+
+    <script type="text/javascript" src="{% static 'vitrine/node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}">
+    </script>
+    <script type="text/javascript" src="{% static 'vitrine/js/intersection-observer.js' %}">
+
+    </script>
+
+  </body>
+</html>

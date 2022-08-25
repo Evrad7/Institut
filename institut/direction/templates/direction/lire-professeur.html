@@ -1,0 +1,88 @@
+{% extends "direction/base.html" %}
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+    Details du professeur
+ </p>
+
+{% endblock %}
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=4 %}
+
+<div class="">
+   <a href="{% url 'direction:liste_professeur' %}" class="violet"> liste des professeurs</a>
+   <div class="text-center">
+     <img src="{{professeur.url}}">
+   </div>
+
+   <div class="fw-bold fs-3 row">
+   <div class="col-12 col-md-6">
+     <p>
+      <span class="violet"> Matricule:</span> {{professeur.matricule}}
+     </p>
+     <p>
+      <span class="violet"> Noms:</span> {{professeur.noms}} 
+     </p>
+     <p>
+      <span class="violet"> Prenoms:</span> {{professeur.prenoms}} 
+     </p>
+     <p>
+      <span class="violet"> Date de naissance:</span> {{professeur.date_naissance}} 
+     </p>
+     <p>
+      <span class="violet"> Lieu de naissance:</span> {{professeur.lieu_de_naissance}} 
+     </p>
+     
+     
+     <p>
+       <span class="violet">Domaine:</span> 
+       {% for domaine in professeur.domaine.all %}{{domaine.nom}},  {% endfor %}
+     </p>
+     <p>
+       <span class="violet">Specialité:</span> 
+       {% for matiere in professeur.matiere_set.all %}
+          {% for specialite in matiere.specialite_set.all %}
+            {{specialite.nom}} 
+          {% endfor %}
+       {% endfor %}
+     </p>
+    
+   </div>
+    <div class="col-12 col-md-6">
+     <p>
+      <span class="violet"> Numero de telephone:</span> {{professeur.numero_telephone}} 
+     </p>
+     <p>
+      <span class="violet"> Email:</span> {{professeur.email}} 
+     </p>
+     <p>
+      <span class="violet"> Nationalite:</span> {{professeur.nationalite}} 
+     </p>
+     <p>
+       <span class="violet">Numero de CNI:</span> {{professeur.numero_CNI}} 
+     </p>
+     <p>
+       <span class="violet">CV:</span><a href="{% url 'direction:lire_cv' pk=professeur.cv.pk %}" class="link-primary text-decoration-none"> details du cv</a>
+     </p>
+     
+     
+    
+   </div>
+   
+     
+   </div>
+
+    <div class="row my-5">
+      <div class="col-12 col-sm-6 text-center">
+        <a href="{% url 'direction:modification_professeur' pk=professeur.pk %}" class="btn btn-primary "> modifier le professeur</a>
+      </div>
+      <div class="col-12 col-sm-6 mt-3 mt-sm-0 text-center" >
+        <a href="{% url 'direction:suppression_professeur' pk=professeur.pk %}" class="btn btn-primary"> supprimer le professeur</a>
+      </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

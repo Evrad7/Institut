@@ -1,0 +1,110 @@
+{% extends "direction/base.html" %}
+{% load static %}
+
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+ Gerez la présence de vos étudiants de
+ {{specialite.filiere.cycle.nom}}/{{specialite.filiere.nom}}/<span class="fw-bold violet">{{specialite.nom}} {{specialite.niveau}}</span>
+ </p>
+
+{% endblock %}
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=9 %}
+<div class="">
+  <a href="{% url 'direction:liste_absence_etudiant' pk_specialite=specialite.pk %}" class="btn btn-primary">Lire toutes les absences</a>
+</div>
+<div class="my-3 ">
+ <form class="" action="{{request.path}}" method="post">
+   {% csrf_token %}
+   <div class="row">
+     <div class="col-12 col-md-4">
+       <p>{{form.date.label_tag}}{{form.date}}</p>
+       <p class="">{% autoescape off %} {{form.errors.date}} {% endautoescape %}</p>
+     </div>
+     <div class="col-12 col-md-4">
+       <p>{{form.heure_debut.label_tag}}{{form.heure_debut}}</p>
+       <p class="">{% autoescape off %} {{form.errors.heure_debut}}{% endautoescape %}</p>
+     </div>
+     <div class="col-12 col-md-4">
+       <p>{{form.heure_fin.label_tag}}{{form.heure_fin}}</p>
+       <p class="">{% autoescape off %} {{form.errors.heure_fin}} {% endautoescape %}</p>
+     </div>
+
+   </div>
+
+ </form>
+ <div class="statut">
+   <div class="my-2 text-end">
+     <button  name="" class="btn btn-primary" id="register">Enregister</button>
+   </div>
+   {% if error is not None %}
+    {% if not error %}
+      <p class="text-success">Enregistrement réussi</p>
+    {% else %}
+      <p class="text-danger"> Enregistrement échoué</p>
+    {% endif %}
+  {% endif %}
+ </div>
+
+</div>
+<div class="">
+ <div class="  row overflow-auto">
+
+  <table class="  table  table-light table-borderless table-hover table-bordered my-4 " id="table-list">
+   <tr>
+     <th class="text-uppercase violet fw-bold"> Photo</th>
+     <th class="text-uppercase violet fw-bold"> Matricule</th>
+     <th class="text-uppercase violet fw-bold"> Noms</th>
+     <th class="text-uppercase violet fw-bold"> Prenoms</th>
+     <th class="text-uppercase violet fw-bold"> Sexe</th>
+     <th class="text-uppercase violet fw-bold"> présence <br> Cochez la case marquer l'absence d'un étudiant</th>
+
+   </tr>
+
+    {% for etudiant in specialite.etudiant_set.all %}
+      <tr  class="">
+
+        <td>{{etudiant.photo}}</td>
+        <td>{{etudiant.matricule}}</td>
+        <td>{{etudiant.noms}}</td>
+        <td>{{etudiant.prenoms}}</td>
+        <td>{{etudiant.sexe}}</td>
+        <td id="{{etudiant.pk}}" class="presence text-center" present="{% if etudiant.pk in absents %}0{% else %}1{% endif %}">
+        {% if etudiant.pk in absents %}<div class='text-center text-danger'>
+          <i class='bi bi-x fs-2'></i></div></td>
+        {% endif %}
+      </tr>
+
+    {% endfor %}
+
+ </table>
+
+ <div class="text-end row">
+    <div class="col-6">
+     <p></p>
+    </div>
+    <div class="col-6">
+       <p class="fw-bold violet" id="presence"></p>
+    </div>
+
+
+ </div>
+</div>
+
+<div class="my-4">
+  {% include 'direction/button-retour.html'%}
+
+</div>
+
+</div>
+
+
+<script type="text/javascript" src="{% static 'vitrine/js/jquery-3.6.0.js' %}">
+</script>
+<script type="text/javascript" src="{% static 'direction/js/absence-etudiant.js' %}">
+</script>
+<script type="text/javascript" src="{% static 'vitrine/node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}">
+    </script>
+{% endblock %}

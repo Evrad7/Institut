@@ -1,0 +1,290 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta  name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <title>Ecole TML</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/css_personalise.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/owl.carousel.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrine/css/bootstrap-icons.css' %}">
+
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="bg-dark header-index position-relative header " >
+        <!--<div class="typing text-danger  display-5">
+          <ul>
+            <li><span> Réaliser vos rêves</span> </li>
+            <li> <span> Reserver votre emploi </span> </li>
+            <li> <span>Decouvez les technologies Beta</span> </li>
+            <li> <span> Site fait par TML</span> </li>
+          </ul>
+        </div>-->
+        <div class="container position-relative hidden-tml">
+          <div class="logo postition-abolute">
+            <img src="{% static 'vitrine/images/logo-ecole.png' %}" alt="" width="200px" height="100px">
+          </div>
+          <div class="display-3  text-white position-absolute text-uppercase fw-bold slogan opacity-75" >
+                <p> La réussite garantie</p>
+                {% if user.is_authenticated %}
+                  <p class="display-4 fw-bold">salut <span class="text-warning ">{{user.username}}</span> </p>
+                {% else %}
+                <a class="btn btn-warning rounded-0 position-absolute text-light fs-4 "
+                 href="{% url 'authentification:login' %}">
+                   Connecter
+                </a>
+                {% endif %}
+          </div>
+
+
+        </div>
+      </div>
+
+
+     {% include "vitrine/menu.html" with page=1 %}
+
+ <div class="container  mt-5">
+   <div class="row ">
+    <div class="col-md-6 col-12 ">
+      <p class="display-6  fw-bold"> N'attendez plus inscrivez vous dès maintenant et obtenez une reduction</p>
+    </div>
+    <div class="col-md-6 col-12 mt-4 mt-md-0">
+      <p class="display-5 text-tml"> 25% de reduction jusqu'au 10 Septembre 2035</p>
+    </div>
+   </div>
+   <div class="row hidden-tml my-5 ">
+
+     <div class="col-md-4 col-12 " >
+       <div class="card border border-primary rounded-0 m-3 my-md-0 mx-md-0">
+         <img src="{% static 'vitrine/images/diplome.jpg' %}" class="card-img-top" alt="diplome" width="200px" height="200px">
+         <div class="card-body text-center">
+           <h4 class="card-title text-warning text-uppercase"> Diplome</h4>
+             <p class="card-text"> L'ecole TML vous délivre un diplome recunnu dans le <strong>monde entier</strong>
+             Cette école à récu la certification ISO </p>
+             <a href=# class="stretched-link"></a>
+         </div>
+       </div>
+     </div>
+     <div class="col-md-4 col-12" >
+       <div class="card border border-primary rounded-0 m-3 my-md-0 mx-md-0">
+         <img src="{% static 'vitrine/images/diplome.jpg' %}" class="card-img-top" alt="diplome" width="200px" height="200px">
+         <div class="card-body text-center">
+           <h4 class="card-title text-warning text-uppercase"> Qualité</h4>
+             <p class="card-text"> L'ecole TML vous délivre un diplome recunnu dans le <strong>monde entier</strong>
+             Cette école à récu la certification ISO </p>
+             <a href=# class="stretched-link"></a>
+         </div>
+       </div>
+     </div>
+
+     <div class="col-md-4 col-12" >
+       <div class="card border border-primary rounded-0 m-3 my-md-0 mx-md-0">
+         <img src="{% static 'vitrine/images/job.png' %}" class="card-img-top" alt="diplome" width="200px" height="200px">
+         <div class="card-body text-center">
+           <h4 class="card-title text-warning text-uppercase"> Emploi</h4>
+             <p class="card-text"> L'ecole TML vous délivre un diplome recunnu dans le <strong>monde entier</strong>
+             Cette école à récu la certification ISO </p>
+             <a href=# class="stretched-link"></a>
+         </div>
+       </div>
+     </div>
+
+     </div>
+   </div>
+ </div>
+
+ <div class="container my-5  bg-light">
+   <div class=" position-relative">
+     <p class="display-3 text-dark fw-bold text-center ">Apercu de l'école  Ecole-TML </p>
+     <p class="text-center hidden-tml">
+     Nous somme une école créee depuis l'an 2030 et nous somme le leader de l'éducation en Afrique centrale. L'entrée se
+     fait sur étude de dossier et de nombreuses écoles extérieures nous demandent chaque années des bourses pour prostuler
+     dans cette prestigieuse école. Nous comptons former des génies qui expérons le sauront relever l'Afrique.
+   </p>
+   <p class="">
+   Nous somme une école créee depuis l'an 2030 et nous somme le leader de l'éducation en Afrique centrale. L'entrée se
+   fait sur étude de dossier et de nombreuses écoles extérieures nous demandent chaque années des bourses pour prostuler
+   dans cette prestigieuse école. Nous comptons former des génies qui expérons le sauront relever l'Afrique.
+ </p>
+ <a href="#" role="button" class="btn btn-warning text-dard rounded-0 border border-dark hidden-tml"> En savoir plus</a>
+   </div>
+ </div>
+
+ <div class="container mt-4 my-5 ">
+   <p class="display-3 text-primary  tml fw-bold ">Cardre d'étude</p>
+   <div class="row ">
+     <div class="col-12 col-lg-6 mt-3 mt-lg-auto ">
+       <div class=" img-tml p-0">
+         <div class="position-relative overflow-hidden">
+           <img src="{% static 'vitrine/images/etudiante1.jpg' %}" alt="laboratoire" class="w-100 d-block" >
+           <p class="text-center fw-bold fs-3 text-light"> Laboratoire Chimique</p>
+         </div>
+       </div>
+     </div>
+     <div class="col-12 col-lg-6 ">
+       <div class="row justify-content-between">
+         <div class="col-6 mb-2 img-tml d-block"  >
+           <div class="position-relative overflow-hidden">
+             <img src="{% static 'vitrine/images/met_cantine.jpg' %}" alt="met-cantine" class="w-100 d-block " >
+             <p class="text-center fw-bold fs-6 fs-md-4 fs-lg-3 text-light"> Laboratoire Chimique</p>
+           </div>
+         </div>
+         <div class="col-6 mb-2 img-tml  ">
+           <div class="position-relative overflow-hidden">
+             <img src="{% static 'vitrine/images/lab-1.jpg' %}" alt="laboratoire-Ecole-TML" class=" w-100 d-block " >
+             <p class="text-center fw-bold fs-6 fs-md-4 fs-lg-3 text-light"> Laboratoire Chimique</p>
+           </div>
+         </div>
+         <div class="col-6 img-tml  "    >
+           <div class="position-relative overflow-hidden">
+             <img src="{% static 'vitrine/images/lab-2.jpg' %}" alt="met-cantine" class=" w-100 d-block " >
+             <p class="text-center fw-bold fs-6 fs-md-4 fs-lg-3 text-light"> Laboratoire Chimique</p>
+
+           </div>
+         </div>
+         <div class="col-6  img-tml  ">
+           <div class="position-relative overflow-hidden">
+             <img src="{% static 'vitrine/images/lab-3.jpg' %}" alt="laboratoire-Ecole-TML" class="w  w-100 d-block " >
+             <p class="text-center fw-bold fs-6 fs-md-4 fs-lg-3 text-light"> Laboratoire Chimique</p>
+           </div>
+         </div>
+       </div>
+     </div>
+
+
+   </div>
+ </div >
+ <hr class="">
+
+ <div class="container  my-5">
+   <p class="display-3 text-warning bg-dark text-center tml fw-bold hidden-tml">Partenaires</p>
+   <div class=" row bg-light mt-5">
+      {% for partenaire in partenaires %}
+     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-5 ">
+        <div class="partenariat">
+          <h3 class="text-center fw-bold">{{partenaire.nom}}</h3>
+          <p class="text-center">{{partenaire.description}}
+          </p>
+        </div>
+     </div>
+     {% endfor %}
+
+   </div>
+
+ </div>
+
+
+ <div class="container text-center border border-danger bg-dark  text-white rounded my-5">
+   <p class="display-3 text-secondary text-left tml fw-bold ">Temoignages</p>
+   <p class="display-3 text-warning bg-dark text-center tml fw-bold "></p>
+
+   <div class="owl-carousel  owl-theme mx-lg-5 px-lg-5 ">
+      <div class="item mx-lg-5 px-lg-5">
+        <figure class="text-center">
+             <img src="{% static 'vitrine/images/etudiant4.jpg' %}" alt="etudiant" class="rounded-circle m-auto border  border-danger" style="width:50px; height:50px;">
+             <figcaption class="text-uppercase fw-bolder text-danger"> Jean Fomekong</figcaption>
+        </figure>
+        <p class="text-center mx-lg-5 px-lg-5">  Je suis un ancien étudiant.Je suis tout à fait satisfait de la qualité de l'enseignement. Au jourd'hui grâce à cette école
+          je suis aujourd'hui cadre dans l'une des plus grandes entreprises de l'Afrique. Je les remercie grandement.
+        </p>
+      </div>
+
+      <div class="item mx-lg-5 px-lg-5">
+        <figure class="text-center">
+             <img src="{% static 'vitrine/images/etudiant4.jpg' %}" alt="etudiant" class="rounded-circle m-auto  border  border-danger" style="width:50px; height:50px;">
+             <figcaption class="text-uppercase fw-bolder text-danger"> Jean Fomekong</figcaption>
+        </figure>
+        <p class="text-center mx-lg-5 px-lg-5">  Je suis un ancien étudiant.Je suis tout à fait satisfait de la qualité de l'enseignement. Au jourd'hui grâce à cette école
+          je suis aujourd'hui cadre dans l'une des plus grandes entreprises de l'Afrique. Je les remercie grandement.
+        </p>
+      </div>
+      <div class="item mx-lg-5 px-lg-5">
+        <figure class="text-center">
+             <img src="{% static 'vitrine/images/etudiant4.jpg' %}" alt="etudiant" class="rounded-circle m-auto border  border-danger" style="width:50px; height:50px;">
+             <figcaption class="text-uppercase fw-bolder text-danger"> Jean Fomekong</figcaption>
+        </figure>
+        <p class="text-center mx-lg-5 px-lg-5">  Je suis un ancien étudiant.Je suis tout à fait satisfait de la qualité de l'enseignement. Au jourd'hui grâce à cette école
+          je suis aujourd'hui cadre dans l'une des plus grandes entreprises de l'Afrique. Je les remercie grandement.
+        </p>
+      </div>
+   </div>
+ </div>
+
+ <div class="container  bg-light">
+   <p class="fw-1 text-dark  text-center tml fw-bold ">derniers nouvelles</p>
+   <div class="row">
+    <div class="col-12 col-md-8">
+       <img src="{% static 'vitrine/images/bus-3.jpg' %}" alt="bus-Ecole-tml" class="img-fluid border border-primary hidden-tml">
+       <p class="display-4 fw-bold  tml-title-article text-dark "> Un nouveau bus à l'université</p>
+       <p class="text-justify ">
+         -	Les différents règlements intérieurs ont intégré la lutte contre la drogue, la
+         violence sous toutes les formes et les hystéries collectives dans les enceintes scolaires.
+        -	Les  cas de violence avérés ont été traduits en conseil de discipline et sanctionné
+        es conformément aux dispositions des règlements intérieurs des établissements concernés.
+        Toutefois l’exploitation des rapports de conseil de discipline nous a obligés d’apport
+        er des corrections à certaines décisions de conseil de discipline qui étaient de nature à enven
+        imer l’atmosphère dans la communauté éducative (Lycée Technique Bangang)
+        -	Existence dans les structures des messages éducatifs sensibilisant contre la drogue et la violence.
+        -	Nous avons fait large diffusion de la correspondance N°21/15/LC/MINESEC/IGS du 21/12/2015 r
+        elative aux déviances pendant les manifestations de la semaine de la jeunesse......<a href="#" class="link-primary">Lire plus</a>
+
+
+       </p>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="row">
+      <div class="col-6 col-md-12">
+        <img src="{% static 'vitrine/images/bus.jpg' %} " alt="bus-Ecole-tml" class="img-fluid  border border-primary" >
+        <p class="fs-3 fw-bold  tml text-primary ">Derniere incursion</p>
+        <p class="text-justify">
+          -	Les différents règlements intérieurs ont intégré la lutte contre la drogue, laSEC/IGS du 21/12/2015 r
+         elative aux déviances pendant les manifestations de la semaine de la jeunesse......<a href="#" class="link-primary">Lire plus</a>
+      </div>
+
+      <div class="col-6 col-md-12">
+        <img src="{% static 'vitrine/images/bus.jpg' %}" alt="bus-Ecole-tml " class="img-fluid border border-primary hidden-tml" >
+        <p class="fs-3 fw-bold  tml text-primary hidden-tml">Derniere incursion</p>
+        <p class="text-justify ">
+          -	Les différents règlements intérieurs ont intégré la lutte contre la drogue, la
+          violence sous toutes les formes et les hystéries collectives dans les enceintes scolaires.
+         jeunesse......<a href="#" class="link-primary">Lire plus</a>
+      </div>
+    </div>
+  </div>
+
+   </div>
+
+ </div>
+ <div class="container hidden-tml">
+     <a href="#" class="link-dark display-3 fw-bold text-decoration-none ">Contactez nous</a>
+ </div>
+
+
+
+
+  {% include "vitrine/footer.html" %}
+
+
+  </div>
+
+
+
+
+
+    <script type="text/javascript" src="{% static 'vitrine/js/jquery-3.6.0.js' %}">
+
+    </script>
+    <script type="text/javascript" src="{% static 'vitrine/js/owl.carousel.min.js' %}">
+    </script>
+     <script type="text/javascript" src="{% static 'vitrine/js/personnel.js' %}">
+    </script>
+    <script type="text/javascript" src="{% static 'vitrine/js/intersection-observer.js' %}">
+
+    </script>
+
+  </body>
+</html>

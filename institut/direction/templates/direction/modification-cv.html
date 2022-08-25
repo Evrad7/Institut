@@ -1,0 +1,36 @@
+{% extends "direction/base.html" %}
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+    Modifier le cv  du professeur <span class="fw-bold">{{cv.professeur.noms}} {{cv.professeur.prenoms}}</span>
+ </p>
+
+{% endblock %}
+  
+  
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=4 %}
+<div class="container row  mt-4 ">
+    <div class="col-12  col-lg-8 mt-2">
+    <div>
+      <a href="{% url 'direction:modification_professeur' pk=cv.professeur.pk %}" class="btn btn-primary"> modifier le professeur </a>
+    </div>
+      <form method="post" class="form-direction" enctype="multipart/form-data" action="{% url 'direction:modification_cv' pk=cv.pk %}">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class=" d-flex justify-content-between mt-5">
+
+        <a href="{% url 'direction:lire_cv'  pk=cv.pk %}" class="btn btn-primary fw-bold">Annuler</a>
+         <input type="submit" value="Modifier" class="btn btn-primary fw-bold text-light " name="">
+      </div>
+        
+      </form>
+    </div> 
+
+  </div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "direction/base.html" %}
+{% load i18n admin_modify  %}
+
+{% block message %}
+
+<div class="my-5">
+	<h2> AJOUT DU CV</h2>
+
+</div>
+ 
+ {% endblock %}
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=4 %}
+ 
+<p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+  Inserez les informatons du CV du professeur <span class="fw-bold">{{noms}} {{prenoms}}</span>
+ </p>
+
+
+<div class="container row  mt-4 ">
+	<div class="col-12  col-lg-8 mt-2 mb-5">
+		<form method="post" class="form-direction" enctype="multipart/form-data" action="{% url 'direction:ajout_cv' pk=pk %}">
+			{% csrf_token %}
+			{{form.as_p}}
+			<div class=" d-flex justify-content-between mt-5">
+			   <a href="{% url 'direction:professeur' %}" class="btn btn-primary fw-bold"> Annuler</a>
+			   <input type="submit" value="Ajouter" class="btn btn-primary fw-bold text-light fs-5" name="">
+			</div>
+		</form>
+	</div> 
+
+</div>
+	
+
+<!--{{form.media}}-->
+{% endblock %}

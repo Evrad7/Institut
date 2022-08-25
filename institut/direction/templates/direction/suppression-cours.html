@@ -1,0 +1,32 @@
+{% extends "direction/base.html" %}
+
+{% block message %}
+ <p class="fs-4 border border-dark py-2 px-3 alert alert-primary">
+    Suprimer le cours
+ </p>
+
+{% endblock %}
+
+
+{% block content %}
+{% include "direction/vertical-bar.html" with onglet=6 %}
+<div class="container  mt-4 ">
+    <h2> Voulez vous vraiment supprimer le cours <span class="fw-bold violet">{{cours.titre}} </span> de(s) spécialité(s) <span  class="fw-bold violet">{% for specialite in cours.specialite_set.all %}
+    {{specialite.filiere.cycle.nom}}/{{specialite.filiere.nom}}/{{specialite.nom}}  {{specialite.niveau}}
+   {% endfor %} </span> ??</h2>
+    <form method="post" action="{{request.path}}" >
+    {% csrf_token %}
+      <div class="mt-4">
+        <a href="{{cours.get_absolute_url}}" class="btn btn-secondary mr-3" >NON</a>
+        <input type="submit" name="" value="OUI" class="btn btn-primary">
+
+    </div>
+    </form>
+
+  </div>
+
+
+
+
+
+{% endblock %}
